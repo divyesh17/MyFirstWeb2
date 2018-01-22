@@ -1,0 +1,154 @@
+li{
+	list-style: none;
+}
+
+#bookID {
+	visibility: hidden;	
+}
+
+.bookPage {
+	width: 100%;
+    height: 730px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bookPage-product {
+	float: left;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 30%;
+}
+
+.bookPage-product-img {
+	background-color: #E6EAF3; 
+	border-radius: 3px;
+	border: 1px solid #0E4085;
+	height: 80%;
+}
+
+.bookPage-product-img img {
+	height: 90%;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);	
+}
+
+.bookPage-product-img:hover {
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.bookPage-product-img img:hover {
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.bookPage-product-btn {
+	display: flex;
+	margin-top: 10px; 
+	height: 10%;
+	width: 100%;
+}
+
+.bookPage-product-btn div {
+	width: 50%;
+	height: 100%;
+}
+
+.bookPage-product-btn button {
+	font-size: 25px;
+	height: 70%;
+	border-radius: 2px;
+	cursor: pointer;
+	outline: none;
+	color: #0E4085;
+	width: 200px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	border: none;
+}
+
+.bookPage-product-btn-ctBtn button {
+	background-color: orange;
+}
+
+.bookPage-product-btn-bBtn a {
+	text-decoration: none;
+}
+
+.bookPage-product-btn-bBtn button {
+	background-color: #3aaf6d
+}
+
+.bookPage-product-btn button:hover {
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+.bookPage-info {
+	height: 90%;
+	padding-left: 30px;
+	background-color: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.bookPage-info span {
+	color: #680909;
+	font-size: 25px;
+}
+
+.bookPage-info-priceAndSeller {
+	margin-top: 20px;
+	display: flex;
+	background-color: none;
+	flex-shrink: 0;
+}
+
+.bookPage-info-priceAndSeller-price{
+	margin-right: 10px;
+}
+
+.bookPage-info-specs {
+	margin-top: 24px;
+    border-radius: 2px;
+    border: solid 2px maroon;
+    flex-shrink: 1;
+    overflow: scroll;
+}
+
+.bookPage-info-specs-fi {
+	padding: 24px 30px 24px 24px;
+    color: #212121;
+}
+
+.bookPage-info-specs-se-seFi {
+	border-top: solid 2px maroon;
+    padding: 24px 24px 34px 24px;
+    font-size: 18px;
+}
+
+.bookPage-info-specs-se-seFi-gen {
+    font-size: 20px;
+}
+
+.bookPage-info-specs-se-seFi ul{
+	padding: 0px;
+}
+
+.bookPage-info-specs-se-seFi-list {
+	padding-top: 16px;
+	display: flex;
+}
+
+.bookPage-info-specs-se-seFi-list div {
+	color: #680909;
+    padding-right: 8px;
+}
+
+.bookPage-info-specs-se-seFi-list-column {
+	width : 15%;
+}

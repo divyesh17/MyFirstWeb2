@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  	<meta charset="utf-8">
+  	<title>BookEarth</title>
+    <link rel="stylesheet" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/homeStyle.css">
+    <link rel="stylesheet" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/cartStyle.css">
+    <link rel="shortcut icon" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/logo.ico">
+  </head>
+
+  <body>
+  	<header>
+  		<div class="cartAndSearch">
+  			<div class="cartAndSearch-symbol">
+          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/home.html">
+        		<img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/logo.ico" alt="BookEarth">
+         		<span>BookEarth</span>
+         	</a>
+       	</div>
+        <div class="cartAndSearch-searchBox">
+         	<input type="text" name="search" placeholder="Search..">
+        </div>
+        <div class="cartAndSearch-dropdown">
+         	<div class="cartAndSearch-dropdown-account">
+         		<button class="cartAndSearch-dropdown-account-dropbtn">Your Account</button>
+        		<div class="cartAndSearch-dropdownContent">
+          		<a href="#">Profile</a>
+           		<a href="#">Order</a>
+           		<a href="#">Settings</a>
+          		<a href="#">Logout</a>
+         		</div>
+        	</div>
+      	</div>
+  		</div>
+    </header>
+
+    <div class="cartBox">
+      <div class="cartBox-cartItm">
+        <div class="cartBox-cartItm-myCart">
+          <span>MY CART (0)</span>
+        </div>
+
+        <!--<div class="cartBox-item">
+          <div class="cartBox-item-detail">
+            <div class="cartBox-item-detail-img">
+              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/sherlockHolmes.jpeg"/>
+            </div>
+            <div class="cartBox-item-detail-nameAndPrice">
+              <div class="cartBox-item-detail-nameAndPrice-name">
+                <span>Sherlock Holmes: The Complete Novels and Stories Volume II (English, Paperback, Sir Arthur Conan Doyle)</span>    
+              </div>
+              <div class="cartBox-item-detail-nameAndPrice-price">
+                <span>₹170</span>
+                <p>sold by <a href=""><strong>BookEarth</strong></a></p>
+              </div>
+
+              <div class="cartBox-item-detail-nameAndPrice-addAndRemove">
+                <div class="cartBox-item-detail-nameAndPrice-addAndRemove-add">
+                  <button class="cartBox-item-detail-nameAndPrice-addAndRemove-add-minus" onclick="decreaseQuantity()" disabled>-</button>
+                  <input type="text" value="1"/>
+                  <button class="cartBox-item-detail-nameAndPrice-addAndRemove-add-plus" onclick="increaseQuantity()">+</button>
+                </div>
+
+                <div class="cartBox-item-detail-nameAndPrice-addAndRemove-remove">
+                  <button>REMOVE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+
+
+      </div> 
+
+      <div class="priceAndCheckout">
+        <div class="priceAndCheckout-priceBox">
+          <div class="priceAndCheckout-priceBox-priceDetails">
+            <span>Price Details</span>
+          </div>
+
+          <div class="priceAndCheckout-qntWisePrice">
+            <div class="priceAndCheckout-qntWisePrice-qntAndPrice">
+              <div>Price (0 item)</div>
+              <div class="">₹0</div>
+            </div>
+            <div class="priceAndCheckout-qntWisePrice-qntAndPrice">
+              <div>Delivery Charges</div>
+              <div class="">₹0</div>
+            </div>
+
+            <div class="priceAndCheckout-qntWisePrice-totAmountBox">
+              <div class="priceAndCheckout-qntWisePrice-qntAndPrice">
+                <div>Amount Payable</div>
+                <div class="">₹0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="priceAndCheckout-chkoutAndShpng">
+          <div class="priceAndCheckout-chkoutAndShpng-shpng">
+            <a href="#">
+              <span>Continue Shopping</span>
+            </a>
+          </div>
+          <div class="priceAndCheckout-chkoutAndShpng-shpng priceAndCheckout-chkoutAndShpng-chkout">
+            <a href="#">
+              <span>Checkout</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="cart.js"></script>
+  </body>
+</html>

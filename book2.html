@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  	<meta charset="utf-8">
+  	<title>BookEarth</title>
+    <link rel="stylesheet" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/homeStyle.css">
+    <link rel="stylesheet" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/bookStyle.css">
+    <link rel="shortcut icon" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/logo.ico">
+  </head>
+  <body>
+  	<header>
+  		<div class="cartAndSearch">
+  			<div class="cartAndSearch-symbol">
+            	<a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/home.html">
+              		<img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/logo.ico" alt="BookEarth">
+              		<span>BookEarth</span>
+            	</a>
+          	</div>
+          	<div class="cartAndSearch-searchBox">
+            	<input type="text" name="search" placeholder="Search..">
+          	</div>
+          	<div class="cartAndSearch-dropdown">
+            	<div class="cartAndSearch-dropdown-account">
+              		<button class="cartAndSearch-dropdown-account-dropbtn">Your Account</button>
+              		<div class="cartAndSearch-dropdownContent">
+                		<a href="#">Profile</a>
+                		<a href="#">Order</a>
+                		<a href="#">Settings</a>
+                		<a href="#">Logout</a>
+              		</div>
+            	</div>
+          	</div>
+          	<div class="cartAndSearch-cart">
+            	<a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/cart.html">
+              		<img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/cart.png" alt="BookEarth">
+              		<span>Cart (0)</span>
+            	</a>
+          	</div>
+  		</div>
+
+  		<div class="category">
+  			<nav class="category-nav">
+  				<a href="#">Fiction</a>
+  				<a href="#">Self-Help</a>
+  				<a href="#">Religion</a>
+  				<a href="#">Business</a>
+  			</nav>
+  		</div>
+  	</header>
+    <span id="bookID">b2</span>
+    <section class="bookPage">
+      <div class="bookPage-product">
+      
+        <div class="bookPage-product-img">
+          <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/sherlockHolmes2.jpeg"/>
+        </div>
+
+        <div class="bookPage-product-btn">
+          <div class="bookPage-product-btn-ctBtn">
+            <button onclick="updateCart()"><strong>Add to Cart</strong></button>
+          </div>
+
+
+          <div class="bookPage-product-btn-bBtn">
+            <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/cart.html">
+              <button onclick="updateCart()"><strong>Buy Now</strong></button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bookPage-info">
+        <div>
+          <span>Sherlock Holmes: The Complete Novels and Stories Volume II (English, Paperback, Sir Arthur Conan Doyle)</span>    
+        </div>
+
+        <div class="bookPage-info-priceAndSeller">
+          <h2 class="bookPage-info-priceAndSeller-price">₹170</h2>
+          <p>sold by <a href=""><strong>BookEarth</strong></a></p>
+        </div>
+
+        <div class="bookPage-info-specs">
+          <div class="bookPage-info-specs-fi">
+            <span>Specifications</span>
+          </div>
+
+          <div class="bookPage-info-specs-se">
+            <div class="bookPage-info-specs-se-seFi">
+              <div class="bookPage-info-specs-se-seFi-gen">General</div>
+              <ul>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Language</div>
+
+                  <ul>
+                    <li>
+                      English
+                    </li>
+                  </ul>
+                </li>
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Author</div>
+
+                  <ul>
+                    <li>
+                      Sir Arthur Conan Doyle
+                    </li>
+                  </ul>
+                </li>
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Binding</div>
+
+                  <ul>
+                    <li>
+                      Paperback
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Publisher</div>
+
+                  <ul>
+                    <li>
+                      Random House Publishing Group
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Genre</div>
+
+                  <ul>
+                    <li>
+                      Literary Collections
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">ISBN</div>
+
+                  <ul>
+                    <li>
+                      9780553212426, 0553212427
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Width</div>
+
+                  <ul>
+                    <li>
+                      1.29 in
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Height</div>
+
+                  <ul>
+                    <li>
+                      6.95 in
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Length</div>
+
+                  <ul>
+                    <li>
+                      4.15 in
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="bookPage-info-specs-se-seFi-list"> 
+                  <div class="bookPage-info-specs-se-seFi-list-column">Weight</div>
+
+                  <ul>
+                    <li>
+                      0.8000 lb
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript" src="bookLayout.js"></script>
+  </body>
+</html>
