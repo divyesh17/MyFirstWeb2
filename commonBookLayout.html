@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  	<meta charset="utf-8"/>
+  	<title>BookEarth</title>
+    <link rel="stylesheet" href="css/homeStyle.css"/>
+    <link rel="stylesheet" href="css/bookStyle.css"/>
+    <link rel="shortcut icon" href="images/logo.ico"/>
+  </head>
+  <body>
+  	<header class="header">
+      <div class="cart-and-search">
+        <div class="logo">
+          <a class="logo__anchor" href="home.html">
+            <img class="logo__img" src="images/logo.ico" alt="BookEarth"/>
+            <span class="logo__name">BookEarth</span>
+          </a>
+        </div>
+        <div class="search-bar">
+          <input class="search-bar__input" type="text" name="search" placeholder="Search.."/>
+        </div>
+        <div class="your-account">
+          <div class="your-account__drop-down">
+            <button class="your-account__button">Your Account</button>
+            <div class="your-account__drop-down-content">
+              <a href="#">Profile</a>
+              <a href="#">Order</a>
+              <a href="#">Settings</a>
+              <a href="#">Logout</a>
+            </div>
+          </div>
+        </div>
+        <div class="cart">
+          <a class="cart__anchor" href="cart.html">
+            <img class="cart__img" src="images/cart.png" alt="BookEarth"/>
+            <div class="cart__cart-value">
+              <span>Cart (</span>
+              <span>0</span>
+              <span>)</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="category">
+        <nav class="category-nav">
+          <a href="#">Fiction</a>
+          <a href="#">Self-Help</a>
+          <a href="#">Religion</a>
+          <a href="#">Business</a>
+        </nav>
+      </div>
+    </header>
+
+    <span id="book-ID">b1</span>
+    <section class="book-info-section">
+      <div class="book-image-and-cart-button">
+      
+        <div class="book-img-block">
+          <img src=""/>
+        </div>
+
+        <div class="buttons-block">
+          <div class="cart-button-block">
+            <button class="cart-button-block__button" onclick="updateCart()">
+              Add to Cart
+            </button>
+          </div>
+
+
+          <div class="buy-button-block">
+            <a href="cart.html">
+              <button class="buy-button-block__button" onclick="updateCart()">
+                Buy Now
+              </button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="book-details">
+        <div class="book-name">
+          Sherlock Holmes: The Complete Novels and Stories Volume I (English, Paperback, Sir Arthur Conan Doyle)    
+        </div>
+
+        <div class="price-and-seller">
+          <p class="price-and-seller__price">₹170</p>
+          <p>sold by <a href=""><strong>BookEarth</strong></a></p>
+        </div>
+
+        <div class="book-specifications">
+          <div class="book-specifications__title">
+            Specifications
+          </div>
+
+          <div>
+            <div class="book-specifications__general">
+              <div class="book-specifications__general-title">General</div>
+              <ul class="book-specifications__list">
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Language</div>
+
+                  <ul>
+                    <li>
+                      English
+                    </li>
+                  </ul>
+                </li>
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Author</div>
+
+                  <ul>
+                    <li>
+                      Sir Arthur Conan Doyle
+                    </li>
+                  </ul>
+                </li>
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Binding</div>
+
+                  <ul>
+                    <li>
+                      Paperback
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Publisher</div>
+
+                  <ul>
+                    <li>
+                      Random House Publishing Group
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Genre</div>
+
+                  <ul>
+                    <li>
+                      Literary Collections
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">ISBN</div>
+
+                  <ul>
+                    <li>
+                      9780553212426, 0553212427
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Width</div>
+
+                  <ul>
+                    <li>
+                      1.29 in
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Height</div>
+
+                  <ul>
+                    <li>
+                      6.95 in
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Length</div>
+
+                  <ul>
+                    <li>
+                      4.15 in
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="book-specifications__list-row"> 
+                  <div class="book-specifications__name">Weight</div>
+
+                  <ul>
+                    <li>
+                      0.8000 lb
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript" src="JAVASCRIPT/bookLayout.js"></script>
+    <script type="text/javascript" src="JAVASCRIPT/data/b1.js"></script>
+    <script type="text/javascript" src="JAVASCRIPT/updateCommonBookLayout.js"></script>
+  </body>
+</html>

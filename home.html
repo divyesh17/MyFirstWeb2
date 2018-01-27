@@ -4,39 +4,43 @@
   <head>
   	<meta charset="utf-8"/>
   	<title>BookEarth</title>
-    <link rel="stylesheet" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/homeStyle.css"/>
-    <link rel="shortcut icon" href="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/logo.ico"/>
+    <link rel="stylesheet" href="css/homeStyle.css"/>
+    <link rel="shortcut icon" href="images/logo.ico"/>
   </head>
 
   <body>
-  	<header>
-  		<div class="cartAndSearch">
-  			<div class="cartAndSearch-symbol">
-            	<a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/home.html"/>
-              		<img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/logo.ico" alt="BookEarth"/>
-              		<span>BookEarth</span>
-            	</a>
-          	</div>
-          	<div class="cartAndSearch-searchBox">
-            	<input type="text" name="search" placeholder="Search.."/>
-          	</div>
-          	<div class="cartAndSearch-dropdown">
-            	<div class="cartAndSearch-dropdown-account">
-              		<button class="cartAndSearch-dropdown-account-dropbtn">Your Account</button>
-              		<div class="cartAndSearch-dropdownContent">
-                		<a href="#">Profile</a>
-                		<a href="#">Order</a>
-                		<a href="#">Settings</a>
-                		<a href="#">Logout</a>
-              		</div>
-            	</div>
-          	</div>
-          	<div class="cartAndSearch-cart">
-            	<a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/cart.html">
-              		<img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/cart.png" alt="BookEarth"/>
-              		<span>Cart (0)</span>
-            	</a>
-          	</div>
+  	<header class="header">
+  		<div class="cart-and-search">
+  			<div class="logo">
+          <a class="logo__anchor" href="home.html">
+            <img class="logo__img" src="images/logo.ico" alt="BookEarth"/>
+            <span class="logo__name">BookEarth</span>
+          </a>
+        </div>
+        <div class="search-bar">
+          <input class="search-bar__input" type="text" name="search" placeholder="Search.."/>
+        </div>
+        <div class="your-account">
+          <div class="your-account__drop-down">
+            <button class="your-account__button">Your Account</button>
+            <div class="your-account__drop-down-content">
+              <a href="#">Profile</a>
+              <a href="#">Order</a>
+              <a href="#">Settings</a>
+              <a href="#">Logout</a>
+            </div>
+          </div>
+        </div>
+        <div class="cart">
+          <a class="cart__anchor" href="cart.html">
+            <img class="cart__img" src="images/cart.png" alt="BookEarth"/>
+            <div class="cart__cart-value">
+              <span>Cart (</span>
+              <span>0</span>
+              <span>)</span>
+            </div>
+          </a>
+        </div>
   		</div>
 
   		<div class="category">
@@ -49,26 +53,28 @@
   		</div>
   	</header>
 
-  	<section class="itemsBox">
-  		<div class="itemsBox-category">
-  			<span>Fiction</span>
+  	<section class="items-box">
+  		<div class="items-category">
+  			<span class="items-category__name">Fiction</span>
   		</div>
-  		<div class="itemsBox-itemsList">
-  			<div class="itemsBox-itemsList-itemDetails">
-  				<a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/bookLayout.html">
-  					<div class="itemsBox-itemsList-itemDetails-image">
-  						<img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/sherlockHolmes1.jpeg"/>
+  		<div class="items-list">
+  			<div class="item-details">
+  				<a class="item-details__anchor" href="old html/BookLayout.html" onclick=storeBookId("b1")>
+  					<div class="item-details__image-block">
+  						<img src="images/sherlockHolmes1.jpeg"/>
   					</div>
-  					<div class="itemsBox-itemsList-itemsDetails-priceAndName">
-  						<span class="itemsBox-itemsList-itemsDetails-priceAndName-name">Sherlock Holmes: Volume I</span>
-  						<span class="itemsBox-itemsList-itemsDetails-priceAndName-price">₹170</span>
+  					<div class="item-details__name-price">
+  						<span class="item-details__name">Sherlock Holmes: Volume I</span>
+  						<span class="item-details__price">₹170</span>
   					</div>
   				</a>
   			</div>
+
+        
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="old html/book2.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/sherlockHolmes2.jpeg"/>
+              <img src="images/sherlockHolmes2.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">Sherlock Holmes: Volume II</span>
@@ -77,9 +83,9 @@
           </a>
         </div>
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/thisIsNotYourStory.jpeg"/>
+              <img/project src="images/thisIsNotYourStory.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">This is not Your Story</span>
@@ -88,9 +94,9 @@
           </a>
         </div>
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/everyoneHasAStory.jpeg"/>
+              <img src="images/everyoneHasAStory.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">Everyone has a Story</span>
@@ -99,9 +105,9 @@
           </a>
         </div>
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/theFaultInOurStar.jpeg"/>
+              <img src="images/theFaultInOurStar.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">The Fault In our Star</span>
@@ -118,9 +124,9 @@
       </div>
       <div class="itemsBox-itemsList">
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/bookLayout.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/theMonkWhoSoldHisFerrari.jpeg"/>
+              <img src="images/theMonkWhoSoldHisFerrari.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">The Monk Who Sold His Ferrari</span>
@@ -129,9 +135,9 @@
           </a>
         </div>
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/whoWillCryWhenYouDie.jpeg"/>
+              <img src="images/whoWillCryWhenYouDie.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">Who will Cry when You Die</span>
@@ -140,9 +146,9 @@
           </a>
         </div>
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/theLeaderWhoHadNoTitle.jpeg"/>
+              <img src="images/theLeaderWhoHadNoTitle.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">The Leader who Had No Title</span>
@@ -151,9 +157,9 @@
           </a>
         </div>
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/theAlchemist.jpeg"/>
+              <img src="images/theAlchemist.jpeg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">The Alchemist</span>
@@ -162,9 +168,9 @@
           </a>
         </div>
         <div class="itemsBox-itemsList-itemDetails">
-          <a href="/Users/divyeshkumar/Desktop/MyFirstWeb2/book2.html">
+          <a href="commonBookLayout.html">
             <div class="itemsBox-itemsList-itemDetails-image">
-              <img src="/Users/divyeshkumar/Desktop/MyFirstWeb2/images/habit.jpg"/>
+              <img src="images/habit.jpg"/>
             </div>
             <div class="itemsBox-itemsList-itemsDetails-priceAndName">
               <span class="itemsBox-itemsList-itemsDetails-priceAndName-name">The 7 Habits of Highly Effective People</span>
@@ -174,6 +180,12 @@
         </div>
       </div>
     </section>
+
+    <script>
+      function storeBookId (id) {
+        window.localStorage.setItem("bookId", id);
+      }
+    </script>
   </body>
 
  </html>

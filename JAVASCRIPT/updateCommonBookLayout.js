@@ -1,0 +1,20 @@
+window.onload = function() {
+	//var bookId = window.localStorage.getItem("bookId");
+	//alert(book.name);
+	document.getElementById("bookID").innerHTML = book.id;
+	document.getElementsByClassName("bookPage-product-img")[0].getElementsByTagName("img")[0].src = book.imgSrc;
+	document.getElementsByClassName("bookPage-info")[0].getElementsByTagName("span")[0].innerHTML = book.name;
+	document.getElementsByClassName("bookPage-info-priceAndSeller-price")[0].innerHTML = book.price;
+	document.getElementsByClassName("bookPage-info-priceAndSeller")[0].getElementsByTagName("strong")[0].innerHTML = book.seller;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[0].getElementsByTagName("li")[0].innerHTML = book.language;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[1].getElementsByTagName("li")[0].innerHTML = book.author;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[2].getElementsByTagName("li")[0].innerHTML = book.binding;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[3].getElementsByTagName("li")[0].innerHTML = book.publisher;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[4].getElementsByTagName("li")[0].innerHTML = book.language;	
+	document.getElementsByClassName("bookPage-info-specs-general-list")[5].getElementsByTagName("li")[0].innerHTML = book.genre;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[6].getElementsByTagName("li")[0].innerHTML = book.ISBN;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[7].getElementsByTagName("li")[0].innerHTML = book.width;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[8].getElementsByTagName("li")[0].innerHTML = book.height;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[9].getElementsByTagName("li")[0].innerHTML = book.length;
+	document.getElementsByClassName("bookPage-info-specs-general-list")[10].getElementsByTagName("li")[0].innerHTML = book.weight;
+};

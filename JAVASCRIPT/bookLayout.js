@@ -5,7 +5,7 @@ function updateCart() {
 		return;
 	var cart = document.getElementsByClassName("cartAndSearch-cart")[0].getElementsByTagName('span')[0];
 	var str = cart.innerHTML;
-	str = str.substring(6,str.length-1);
+	str = str.substring(6);
 	var numItem = parseInt(str);
 	numItem++;
 	cart.innerHTML = "Cart (" + numItem + ")";

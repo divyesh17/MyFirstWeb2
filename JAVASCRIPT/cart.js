@@ -1,4 +1,3 @@
-
 const locStor = window.localStorage;
 
 window.onload = function () {
@@ -59,6 +58,8 @@ window.onload = function () {
 							var input = document.createElement("input");
 							input.setAttribute("type", "text");
 							input.setAttribute("value","1");
+							input.onchange = function() {changeQuantityPerItem(id)};
+							input.onfocus = function() {getOldQuantityPerItem(id)};
 							cartBox_item_detail_nameAndPrice_addAndRemove_add.appendChild(input);
 
 							var cartBox_item_detail_nameAndPrice_addAndRemove_add_plus = document.createElement("button");
@@ -88,15 +89,34 @@ window.onload = function () {
 		updatePrice(parseInt(itemDet.price.substring(1)));
 	}
 
-	updateQuantity(len);
+	updateItemQuantity(len);
 }
 
-function updateQuantity(len)
+function updateItemQuantity(len)
 {
 	var myCart = document.getElementsByClassName("cartBox-cartItm-myCart")[0].getElementsByTagName("span")[0];
 	myCart.innerHTML = "MY CART (" + len + ")";
 	var price = document.getElementsByClassName("priceAndCheckout-qntWisePrice-qntAndPrice")[0].getElementsByTagName("div")[0];
 	price.innerHTML = "Price (" + len + " items)";
+}
+
+var oldQuantity;
+function getOldQuantityPerItem(id)
+{
+	oldQuantity = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-addAndRemove-add")[0].getElementsByTagName("input")[0].value;
+}
+
+function changeQuantityPerItem(id) {
+	var newQuantity = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-addAndRemove-add")[0].getElementsByTagName("input")[0];
+	if(parseInt(newQuantity.value)<=0)
+	{
+		alert("Enter Correct Quantity");
+		newQuantity.value = oldQuantity;
+		return;
+	}
+	var price = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-price")[0].getElementsByTagName("span")[0];
+	var pricePerItem = parseInt(price.innerHTML.substring(1));
+	updatePrice((newQuantity.value-oldQuantity)*pricePerItem);
 }
 
 function removeCart(id) {
@@ -116,7 +136,7 @@ function removeCart(id) {
 	var inputElement = document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("input")[0];
 	var inputValue = parseInt(inputElement.value);
 	updatePrice(-price*inputValue);
-	updateQuantity(itemArray.length);
+	updateItemQuantity(itemArray.length);
 	document.getElementById(id).remove();
 }
 
@@ -129,11 +149,9 @@ function increaseQuantity(id) {
 	inputElement.value = inputValue;
 
 	var price = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-price")[0].getElementsByTagName("span")[0];
-	var oldPrice = parseInt(price.innerHTML.substring(1));
-	var newPrice = (oldPrice/(inputValue-1))*inputValue;
-	price.innerHTML = "₹"+newPrice;
+	var pricePerItem = parseInt(price.innerHTML.substring(1));
 
-	updatePrice(newPrice-oldPrice);
+	updatePrice(pricePerItem);
 	document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("button")[0].disabled = false;
 }
 
@@ -145,11 +163,9 @@ function decreaseQuantity(id) {
 	inputElement.value = inputValue;
 
 	var price = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-price")[0].getElementsByTagName("span")[0];
-	var oldPrice = parseInt(price.innerHTML.substring(1));
-	var newPrice = (oldPrice/(inputValue+1))*inputValue;
-	price.innerHTML = "₹"+newPrice;
+	var pricePerItem= parseInt(price.innerHTML.substring(1));
 
-	updatePrice(newPrice-oldPrice);
+	updatePrice(-pricePerItem);
 	if(inputValue==1)
 		document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("button")[0].disabled = true;
 }
