@@ -1,184 +1,245 @@
-const locStor = window.localStorage;
+import {books} from "./data/allBooks.js";
+/* ============================ MODEL ==================================== */
 
-window.onload = function () {
-	//locStor.removeItem("cart");
-	var itemArray;
-	if(locStor.getItem("cart") === null)
-		return;
-	itemArray = JSON.parse(locStor.getItem("cart"));
-	var len = itemArray.length;
-	for (let ind = 0; ind < len; ind++)
-	{
-		var itemDet = itemArray[ind];
-		let id = itemDet.id;
+var model = {
+	cartValue: 0,
+	deliveryCharge: 0,
+	itemIdArray: [],
+	clickedItemOldQuantity: 0,
+	totalQuantity: 0,
+	totalItemPrice: 0
+};
 
-		var cartBox_item = document.createElement("div");
-			var cartBox_item_detail = document.createElement("div");
-				var cartBox_item_detail_img = document.createElement("div");
-					var img = document.createElement("img");
-					img.setAttribute("src", itemDet.image);
-					cartBox_item_detail_img.appendChild(img);
-				cartBox_item_detail_img.setAttribute("class", "cartBox-item-detail-img");	
-				cartBox_item_detail.appendChild(cartBox_item_detail_img);
+/* ============================= OCTOPUS ================================== */
 
-				var cartBox_item_detail_nameAndPrice = document.createElement("div");
-					var cartBox_item_detail_nameAndPrice_name = document.createElement("div");
-						var span = document.createElement("span");
-						span.innerHTML = itemDet.name;
-						cartBox_item_detail_nameAndPrice_name.appendChild(span);
-					cartBox_item_detail_nameAndPrice_name.setAttribute("class","cartBox-item-detail-nameAndPrice-name");
-					cartBox_item_detail_nameAndPrice.appendChild(cartBox_item_detail_nameAndPrice_name);
+var octopus = {
 
-					var cartBox_item_detail_nameAndPrice_price = document.createElement("div");
-						span = document.createElement("span");
-						span.innerHTML = itemDet.price;
-						cartBox_item_detail_nameAndPrice_price.appendChild(span);
+	init: function() {
+		this.initItemIdArray();
+		this.updateCartValue();
 
-						var p = document.createElement("p");
-						p.innerHTML = "sold by ";
-							var anchor = document.createElement("a");
-								var strong = document.createElement("strong");
-								strong.innerHTML = itemDet.seller;	
-								anchor.appendChild(strong);
-							anchor.setAttribute("href","#");
-							p.appendChild(anchor);
-						cartBox_item_detail_nameAndPrice_price.appendChild(p);
-					cartBox_item_detail_nameAndPrice_price.setAttribute("class", "cartBox-item-detail-nameAndPrice-price");
-					cartBox_item_detail_nameAndPrice.appendChild(cartBox_item_detail_nameAndPrice_price);
+		priceView.init();
+		cartView.init();
+	},
 
-					var cartBox_item_detail_nameAndPrice_addAndRemove = document.createElement("div");
-						var cartBox_item_detail_nameAndPrice_addAndRemove_add = document.createElement("div");
-							var cartBox_item_detail_nameAndPrice_addAndRemove_add_minus = document.createElement("button");
-							cartBox_item_detail_nameAndPrice_addAndRemove_add_minus.innerHTML = "-";
-							cartBox_item_detail_nameAndPrice_addAndRemove_add_minus.disabled = true;
-							cartBox_item_detail_nameAndPrice_addAndRemove_add_minus.onclick = function() {decreaseQuantity(id)};
-							cartBox_item_detail_nameAndPrice_addAndRemove_add_minus.setAttribute("class", "cartBox-item-detail-nameAndPrice-addAndRemove-add-minus");
-							cartBox_item_detail_nameAndPrice_addAndRemove_add.appendChild(cartBox_item_detail_nameAndPrice_addAndRemove_add_minus);
-						
-							var input = document.createElement("input");
-							input.setAttribute("type", "text");
-							input.setAttribute("value","1");
-							input.onchange = function() {changeQuantityPerItem(id)};
-							input.onfocus = function() {getOldQuantityPerItem(id)};
-							cartBox_item_detail_nameAndPrice_addAndRemove_add.appendChild(input);
+	getCartValue: function() {
+		return model.cartValue;
+	},
 
-							var cartBox_item_detail_nameAndPrice_addAndRemove_add_plus = document.createElement("button");
-							cartBox_item_detail_nameAndPrice_addAndRemove_add_plus.innerHTML = "+";
-							cartBox_item_detail_nameAndPrice_addAndRemove_add_plus.onclick = function() {increaseQuantity(id)};
-							cartBox_item_detail_nameAndPrice_addAndRemove_add_plus.setAttribute("class", "cartBox-item-detail-nameAndPrice-addAndRemove-add-plus");
-							cartBox_item_detail_nameAndPrice_addAndRemove_add.appendChild(cartBox_item_detail_nameAndPrice_addAndRemove_add_plus);
-						cartBox_item_detail_nameAndPrice_addAndRemove_add.setAttribute("class", "cartBox-item-detail-nameAndPrice-addAndRemove-add");
-						cartBox_item_detail_nameAndPrice_addAndRemove.appendChild(cartBox_item_detail_nameAndPrice_addAndRemove_add);
+	getCurrentItemPrice: function(event) {
+		var ancestorNode = event.target.closest(".name-and-price");
+		var itemPrice = ancestorNode.getElementsByClassName("price-and-seller__price")[1].innerHTML;
+		return parseInt(itemPrice);
+	},
 
-						var cartBox_item_detail_nameAndPrice_addAndRemove_remove = document.createElement("div");
-							var button = document.createElement("button");
-							button.innerHTML = "REMOVE";
-							button.onclick = function() {removeCart(id)};
-							cartBox_item_detail_nameAndPrice_addAndRemove_remove.appendChild(button);
-						cartBox_item_detail_nameAndPrice_addAndRemove_remove.setAttribute("class","cartBox-item-detail-nameAndPrice-addAndRemove-remove");
-						cartBox_item_detail_nameAndPrice_addAndRemove.appendChild(cartBox_item_detail_nameAndPrice_addAndRemove_remove);
-					cartBox_item_detail_nameAndPrice_addAndRemove.setAttribute("class", "cartBox-item-detail-nameAndPrice-addAndRemove");
-					cartBox_item_detail_nameAndPrice.appendChild(cartBox_item_detail_nameAndPrice_addAndRemove);
-				cartBox_item_detail_nameAndPrice.setAttribute("class","cartBox-item-detail-nameAndPrice");
-				cartBox_item_detail.appendChild(cartBox_item_detail_nameAndPrice);
-				cartBox_item_detail.setAttribute("class", "cartBox-item-detail");
-				cartBox_item.appendChild(cartBox_item_detail);
-		cartBox_item.setAttribute("class", "cartBox-item");
-		cartBox_item.setAttribute("id", itemDet.id);
-		document.getElementsByClassName("cartBox-cartItm")[0].appendChild(cartBox_item);
-		updatePrice(parseInt(itemDet.price.substring(1)));
-	}
+	getCurrentItemQuantity: function(event) {
+		var ancestorNode = event.target.closest(".name-and-price");
+		var itemQuantity = ancestorNode.getElementsByClassName("quantity-update__input")[0].value;
+		return parseInt(itemQuantity);
+	},
 
-	updateItemQuantity(len);
-}
+	getDeliveryCharge: function() {
+		return model.deliveryCharge;
+	},
 
-function updateItemQuantity(len)
-{
-	var myCart = document.getElementsByClassName("cartBox-cartItm-myCart")[0].getElementsByTagName("span")[0];
-	myCart.innerHTML = "MY CART (" + len + ")";
-	var price = document.getElementsByClassName("priceAndCheckout-qntWisePrice-qntAndPrice")[0].getElementsByTagName("div")[0];
-	price.innerHTML = "Price (" + len + " items)";
-}
+	getItemIdArray: function() {
+		return model.itemIdArray;
+	},
 
-var oldQuantity;
-function getOldQuantityPerItem(id)
-{
-	oldQuantity = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-addAndRemove-add")[0].getElementsByTagName("input")[0].value;
-}
+	getOldQuantity: function() {
+		return model.clickedItemOldQuantity;
+	},
 
-function changeQuantityPerItem(id) {
-	var newQuantity = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-addAndRemove-add")[0].getElementsByTagName("input")[0];
-	if(parseInt(newQuantity.value)<=0)
-	{
-		alert("Enter Correct Quantity");
-		newQuantity.value = oldQuantity;
-		return;
-	}
-	var price = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-price")[0].getElementsByTagName("span")[0];
-	var pricePerItem = parseInt(price.innerHTML.substring(1));
-	updatePrice((newQuantity.value-oldQuantity)*pricePerItem);
-}
+	getPayableAmount: function() {
+		return (model.totalItemPrice + model.deliveryCharge);
+	},
 
-function removeCart(id) {
-	var itemArray = JSON.parse(locStor.getItem("cart"));
-	var price;
-	for(let ind = 0; ind < itemArray.length; ind++)
-	{
-		if(itemArray[ind].id === id)
+	getTotalQuantity: function() {
+		return model.totalQuantity;
+	},
+
+	getTotalItemPrice: function() {
+		return model.totalItemPrice;
+	},
+
+	initItemIdArray: function() {
+		var itemIdArray = JSON.parse(window.localStorage.getItem("cart"));
+		if(itemIdArray !== null)
+			model.itemIdArray = itemIdArray;
+	},
+
+	isCorrectValue: function(newQuantity,event) {
+		if(isNaN(newQuantity) || parseInt(newQuantity) <= 0)
 		{
-			price = parseInt(itemArray[ind].price.substring(1));
-			itemArray.splice(ind,1);
-			locStor.setItem("cart", JSON.stringify(itemArray));
-			break;
+			alert("Please Enter Correct Quantity.");
+			event.target.value = model.clickedItemOldQuantity;
+			return false;
 		}
+		return true;
+	},
+
+	removeFromLocalStorage: function(bookId) {
+		var itemInd = model.itemIdArray.indexOf(bookId);
+		model.itemIdArray.splice(itemInd,1);
+		window.localStorage.setItem("cart",JSON.stringify(model.itemIdArray));
+		octopus.updateCartValue();
+	},
+
+	setOldQuantity: function(quantity) {
+		model.clickedItemOldQuantity = parseInt(quantity);
+	},
+
+	updateCartValue: function() {
+		model.cartValue = model.itemIdArray.length;
+	},
+
+	updateItemPriceAndQuantity: function(price,quantity) {
+		model.totalItemPrice += parseInt(price);
+		model.totalQuantity += parseInt(quantity);
+		priceView.render();
 	}
-	var str = "cartBox-item-detail-nameAndPrice-addAndRemove-add";
-	var inputElement = document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("input")[0];
-	var inputValue = parseInt(inputElement.value);
-	updatePrice(-price*inputValue);
-	updateItemQuantity(itemArray.length);
-	document.getElementById(id).remove();
-}
+};
 
-function increaseQuantity(id) {
-	
-	var str = "cartBox-item-detail-nameAndPrice-addAndRemove-add";
-	var inputElement = document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("input")[0];
-	var inputValue = parseInt(inputElement.value);
-	inputValue++;
-	inputElement.value = inputValue;
+/* ============================= VIEW ================================== */
 
-	var price = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-price")[0].getElementsByTagName("span")[0];
-	var pricePerItem = parseInt(price.innerHTML.substring(1));
+var cartView = {
+	init: function() {
+		//get DOM element that contains number of items in cart
+		this.cartValueElem = document.getElementsByClassName("cart-value")[0];
+		//get DOM element of cart box
+		this.cartTable = document.getElementsByClassName("cart-items-table")[0];
 
-	updatePrice(pricePerItem);
-	document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("button")[0].disabled = false;
-}
+		this.render();
+	},
 
-function decreaseQuantity(id) {
-	var str = "cartBox-item-detail-nameAndPrice-addAndRemove-add";
-	var inputElement = document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("input")[0];
-	var inputValue = parseInt(inputElement.value);
-	inputValue--;
-	inputElement.value = inputValue;
+	addEventListener: function(itemListElem,bookObj) {
+		var increaseButton = itemListElem.getElementsByClassName("quantity-update__button")[1];
+		var decreaseButton = itemListElem.getElementsByClassName("quantity-update__button")[0];
+		var inputField = itemListElem.getElementsByClassName("quantity-update__input")[0];
+		var removeButton = itemListElem.getElementsByClassName("quantity-remove__button")[0];
 
-	var price = document.getElementById(id).getElementsByClassName("cartBox-item-detail-nameAndPrice-price")[0].getElementsByTagName("span")[0];
-	var pricePerItem= parseInt(price.innerHTML.substring(1));
+		inputField.addEventListener("focus",function(event) {
+			octopus.setOldQuantity(event.target.value);
+		});
 
-	updatePrice(-pricePerItem);
-	if(inputValue==1)
-		document.getElementById(id).getElementsByClassName(str)[0].getElementsByTagName("button")[0].disabled = true;
-}
+		inputField.addEventListener("change",function(event) {
+			var newQuantity = event.target.value;
+			var oldQuantity = octopus.getOldQuantity();
 
-function updatePrice(inc)
-{
-	var priceElement = document.getElementsByClassName("priceAndCheckout-qntWisePrice-qntAndPrice");
+			if(octopus.isCorrectValue(newQuantity,event) === false)
+				return;
 
-	var totPrice = priceElement[0].getElementsByTagName("div")[1];
-	var newTotPrice = parseInt(totPrice.innerHTML.substring(1)) + inc;
-	totPrice.innerHTML = "₹"+newTotPrice;
-	
-	var totPay = priceElement[2].getElementsByTagName("div")[1];
-	var newTotPay = parseInt(totPay.innerHTML.substring(1)) + inc;
-	totPay.innerHTML = "₹"+newTotPay;
-}
+			//update disabled value of minus button
+			cartView.changeDisabledValue(event);
+			var quantityDiff = parseInt(newQuantity)-oldQuantity;
+			var selectedItemPrice = octopus.getCurrentItemPrice(event);
+			octopus.updateItemPriceAndQuantity(selectedItemPrice*quantityDiff,quantityDiff);
+		});
+
+		increaseButton.addEventListener("click", function(event) {
+			//increase quantity in value attribute of input element
+			event.target.previousSibling.previousSibling.value++;
+			//update disabled value of minus button
+			cartView.changeDisabledValue(event);
+			var selectedItemPrice = octopus.getCurrentItemPrice(event);
+			octopus.updateItemPriceAndQuantity(selectedItemPrice,1);
+		});
+
+		decreaseButton.addEventListener("click", function(event) {
+			//increase quantity in value attribute of input element
+			event.target.nextSibling.nextSibling.value--;
+			//update disabled value of minus button
+			cartView.changeDisabledValue(event);
+			var selectedItemPrice = octopus.getCurrentItemPrice(event);
+			octopus.updateItemPriceAndQuantity(-selectedItemPrice,-1);
+		});
+
+		removeButton.addEventListener("click", function(event) {
+			var itemDivBlock = event.target.closest(".cart-items-list");
+			var bookId = itemDivBlock.id;
+			octopus.removeFromLocalStorage(bookId);
+			var selectedItemPrice = octopus.getCurrentItemPrice(event);
+			var selectedItemQuantity = octopus.getCurrentItemQuantity(event);
+			octopus.updateItemPriceAndQuantity(-selectedItemPrice*selectedItemQuantity,-selectedItemQuantity);
+			itemDivBlock.remove();
+			cartView.cartValueElem.innerHTML = octopus.getCartValue();
+		});
+	},
+
+	changeDisabledValue: function(event) {
+		var parentNode = event.target.closest(".quantity-update"); 
+		var inputElem = parentNode.getElementsByClassName("quantity-update__input")[0];
+		var minusButton = parentNode.getElementsByClassName("quantity-update__button")[0];
+
+		if(inputElem.value === "1")
+			minusButton.disabled = true;
+		else minusButton.disabled = false;
+	},
+
+	render: function() {
+		this.cartValueElem.innerHTML = octopus.getCartValue();
+
+		var itemIdArray = octopus.getItemIdArray();
+
+		itemIdArray.forEach(function(bookId) {
+			//get book detial object from books array using its index
+			var bookIndex = parseInt(bookId.substr(1))-1;
+			var bookObj = books[bookIndex];
+
+			var itemListElem = document.createElement("div");
+			itemListElem.className = "cart-items-list";
+			itemListElem.innerHTML = 
+				`<div id="${bookObj.id}" class="cart-item-details">
+            		<div class="img-block">
+              			<img class="img-block__img" src="${bookObj.imgSrc}"/>
+            		</div>
+            		<div class="name-and-price">
+              			<div class="name-block">
+                			<span class="name-block__name">${bookObj.name}</span>    
+              			</div>
+              			<div class="price-and-seller">
+                			<span class="price-and-seller__price">₹</span>
+                			<span class="price-and-seller__price">${bookObj.price}</span>
+                			<p>sold by <a href=""><strong>${bookObj.seller}</strong></a></p>
+              			</div>
+
+              			<div class="quantity-update-or-remove">
+                			<div class="quantity-update">
+                  				<button class="quantity-update__button" disabled>-</button>
+                  				<input class="quantity-update__input" type="text" value="1"/>
+                  				<button class="quantity-update__button">+</button>
+                			</div>
+
+                			<div class="quantity-remove">
+                  				<button class="quantity-remove__button">REMOVE</button>
+                			</div>
+              			</div>
+            		</div>
+          		</div>`;
+          	
+          	octopus.updateItemPriceAndQuantity(bookObj.price,1);
+          	cartView.addEventListener(itemListElem,bookObj);
+          	cartView.cartTable.appendChild(itemListElem);
+		});
+	},
+};
+
+var priceView = {
+	init: function() {
+		this.totalQuantityElem = document.getElementsByClassName("items-quantity")[0];
+		this.totalItemPriceElem = document.getElementsByClassName("total-items-price")[0];
+		this.deliveryChargeElem = document.getElementsByClassName("delivery-charge")[0];
+		this.payableAmountElem = document.getElementsByClassName("amount-payable")[0];
+
+		this.render();
+	},
+
+	render: function() {
+		this.totalQuantityElem.textContent = octopus.getTotalQuantity();
+		this.totalItemPriceElem.textContent = octopus.getTotalItemPrice();
+		this.deliveryChargeElem.textContent = octopus.getDeliveryCharge();
+		this.payableAmountElem.textContent = octopus.getPayableAmount();
+	}
+};
+
+octopus.init();

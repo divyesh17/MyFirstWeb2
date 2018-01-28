@@ -25,15 +25,14 @@ li {
 	background-color: #E6EAF3; 
 	border-radius: 3px;
 	border: 1px solid #0E4085;
+	display: flex;
 	height: 80%;
+	justify-content: space-around;
+	padding: 10%;
 }
 
 .book-img-block > img {
-	height: 90%;
-	left: 50%;
-	position: relative;
-	top: 50%;
-	transform: translate(-50%,-50%);	
+	height: 100%;	
 }
 
 .book-img-block:hover {

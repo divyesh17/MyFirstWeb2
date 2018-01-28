@@ -34,9 +34,9 @@
         <div class="cart">
           <a class="cart__anchor" href="cart.html">
             <img class="cart__img" src="images/cart.png" alt="BookEarth"/>
-            <div class="cart__cart-value">
+            <div class="cart__cart-text-value">
               <span>Cart (</span>
-              <span>0</span>
+              <span class="cart__cart-value"></span>
               <span>)</span>
             </div>
           </a>
@@ -52,18 +52,16 @@
         </nav>
       </div>
     </header>
-
-    <span id="book-ID">b1</span>
     <section class="book-info-section">
       <div class="book-image-and-cart-button">
       
         <div class="book-img-block">
-          <img src=""/>
+          <img class="book-img-block__img" src=""/>
         </div>
 
         <div class="buttons-block">
           <div class="cart-button-block">
-            <button class="cart-button-block__button" onclick="updateCart()">
+            <button class="cart-button-block__button">
               Add to Cart
             </button>
           </div>
@@ -71,7 +69,7 @@
 
           <div class="buy-button-block">
             <a href="cart.html">
-              <button class="buy-button-block__button" onclick="updateCart()">
+              <button class="buy-button-block__button">
                 Buy Now
               </button>
             </a>
@@ -81,13 +79,11 @@
       </div>
 
       <div class="book-details">
-        <div class="book-name">
-          Sherlock Holmes: The Complete Novels and Stories Volume I (English, Paperback, Sir Arthur Conan Doyle)    
-        </div>
+        <div class="book-name"></div>
 
         <div class="price-and-seller">
-          <p class="price-and-seller__price">₹170</p>
-          <p>sold by <a href=""><strong>BookEarth</strong></a></p>
+          <p class="price-and-seller__price"></p>
+          <p>sold by <a href=""><strong class="price-and-seller__seller"></strong></a></p>
         </div>
 
         <div class="book-specifications">
@@ -104,27 +100,21 @@
                   <div class="book-specifications__name">Language</div>
 
                   <ul>
-                    <li>
-                      English
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
                 <li class="book-specifications__list-row"> 
                   <div class="book-specifications__name">Author</div>
 
                   <ul>
-                    <li>
-                      Sir Arthur Conan Doyle
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
                 <li class="book-specifications__list-row"> 
                   <div class="book-specifications__name">Binding</div>
 
                   <ul>
-                    <li>
-                      Paperback
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -132,9 +122,7 @@
                   <div class="book-specifications__name">Publisher</div>
 
                   <ul>
-                    <li>
-                      Random House Publishing Group
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -142,9 +130,7 @@
                   <div class="book-specifications__name">Genre</div>
 
                   <ul>
-                    <li>
-                      Literary Collections
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -152,9 +138,7 @@
                   <div class="book-specifications__name">ISBN</div>
 
                   <ul>
-                    <li>
-                      9780553212426, 0553212427
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -162,9 +146,7 @@
                   <div class="book-specifications__name">Width</div>
 
                   <ul>
-                    <li>
-                      1.29 in
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -172,9 +154,7 @@
                   <div class="book-specifications__name">Height</div>
 
                   <ul>
-                    <li>
-                      6.95 in
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -182,9 +162,7 @@
                   <div class="book-specifications__name">Length</div>
 
                   <ul>
-                    <li>
-                      4.15 in
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -192,9 +170,7 @@
                   <div class="book-specifications__name">Weight</div>
 
                   <ul>
-                    <li>
-                      0.8000 lb
-                    </li>
+                    <li class="book-specifications__value"></li>
                   </ul>
                 </li>
 
@@ -204,8 +180,6 @@
         </div>
       </div>
     </section>
-    <script type="text/javascript" src="JAVASCRIPT/bookLayout.js"></script>
-    <script type="text/javascript" src="JAVASCRIPT/data/b1.js"></script>
-    <script type="text/javascript" src="JAVASCRIPT/updateCommonBookLayout.js"></script>
+    <script type="module" src="JAVASCRIPT/commonBookLayout.js"></script>
   </body>
 </html>

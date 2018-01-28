@@ -1,7 +1,7 @@
 export const book = {
 	author 		: "Sir Arthur Conan Doyle",
 	binding		: "Paperback",
-	category	: ["fiction"],
+	category	: ["religion"],
 	genre		: "Literary Collections",
 	height 		: "6.95 in",
 	id 			: "b1",
