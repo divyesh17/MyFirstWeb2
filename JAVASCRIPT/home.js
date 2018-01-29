@@ -2,7 +2,8 @@ import {books} from "./data/allBooks.js";
 /* ============================ MODEL ==================================== */
 
 var model = {
-	cartValue: 0
+	cartValue: 0,
+	totalCategory: 0
 };
 
 /* ============================= OCTOPUS ================================== */
@@ -11,8 +12,20 @@ var octopus = {
 
 	init: function() {
 		this.updateCartValue();
+		this.updateTotalCategory();
 		cartView.init();
+		categoryView.init();
 		bookView.init();
+	},
+
+	filterCategory: function(categoryIndex) {
+		for(let i=0;i<model.totalCategory;i++) {
+			if(i!=categoryIndex)
+			{	
+				bookView.disableCategory(i);
+			}
+		}
+		bookView.enableFilteredCategory(categoryIndex);
 	},
 
 	getCartValue: function() {
@@ -21,6 +34,10 @@ var octopus = {
 
 	storeBookId: function(bookId) {
 		window.localStorage.setItem("bookId", bookId);
+	},
+
+	updateTotalCategory: function() {
+		model.totalCategory = 4;
 	},
 
 	updateCartValue: function() {
@@ -36,6 +53,20 @@ var bookView = {
 	init: function() {
 		//render this view
 		this.render();
+	},
+
+	disableCategory: function(categoryIndex) {
+		var categorySection = document.getElementsByClassName("items-box")[categoryIndex];
+		categorySection.style.display = "none";
+	},
+
+	enableFilteredCategory: function(categoryIndex) {
+		//console.log(screen.height);
+		var categorySection = document.getElementsByClassName("items-box")[categoryIndex];
+		categorySection.style.height = (screen.height-120) + "px";
+		categorySection.style.display = "flex";
+		var itemBlock = categorySection.getElementsByClassName("items-list")[0];
+		itemBlock.style.flexWrap = "wrap";
 	},
 
 	getDivNumOfCategory: function(elem) {
@@ -88,6 +119,23 @@ var cartView = {
 
 	render: function() {
 		this.cartValueElem.innerHTML = octopus.getCartValue();
+	}
+};
+
+var categoryView = {
+	init: function() {
+		this.categoryArray = document.getElementsByClassName("category__choose");
+		this.addEventListener();
+	},
+
+	addEventListener: function() {
+		for(let i=0;i<this.categoryArray.length;i++){
+			this.categoryArray[i].addEventListener("click", (function(categoryIndex) {
+				return function() {
+					octopus.filterCategory(categoryIndex);
+				}
+			})(i));
+		}
 	}
 };
 
