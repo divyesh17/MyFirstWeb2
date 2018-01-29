@@ -17,15 +17,15 @@ var octopus = {
 		categoryView.init();
 		bookView.init();
 	},
+	
+	changeCategoryName: function(categoryName) {
+		bookView.changeCategoryName(categoryName);
+	},
 
-	filterCategory: function(categoryIndex) {
-		for(let i=0;i<model.totalCategory;i++) {
-			if(i!=categoryIndex)
-			{	
-				bookView.disableCategory(i);
-			}
-		}
-		bookView.enableFilteredCategory(categoryIndex);
+	filterCategory: function(categoryName) {
+		console.log(categoryName);
+		this.changeCategoryName(categoryName);
+		bookView.enableFilteredCategory(categoryName);
 	},
 
 	getCartValue: function() {
@@ -37,7 +37,7 @@ var octopus = {
 	},
 
 	updateTotalCategory: function() {
-		model.totalCategory = 4;
+		model.totalCategory = 5;
 	},
 
 	updateCartValue: function() {
@@ -51,44 +51,41 @@ var octopus = {
 var bookView = {
 
 	init: function() {
+		this.bookSection = document.getElementsByClassName("items-list")[0];
+		this.enableFilteredCategory("All");
 		//render this view
 		this.render();
 	},
 
-	disableCategory: function(categoryIndex) {
-		var categorySection = document.getElementsByClassName("items-box")[categoryIndex];
-		categorySection.style.display = "none";
+	changeCategoryName: function(categoryName) {
+		var categoryNameElem = document.getElementsByClassName("items-category__name")[0];
+		categoryNameElem.innerHTML = categoryName;
 	},
 
-	enableFilteredCategory: function(categoryIndex) {
-		//console.log(screen.height);
-		var categorySection = document.getElementsByClassName("items-box")[categoryIndex];
+	changeCategoryStyle: function() {
+		var categorySection = document.getElementsByClassName("items-box")[0];
 		categorySection.style.height = (screen.height-120) + "px";
 		categorySection.style.display = "flex";
 		var itemBlock = categorySection.getElementsByClassName("items-list")[0];
 		itemBlock.style.flexWrap = "wrap";
 	},
 
-	getDivNumOfCategory: function(elem) {
-		//alert(elem.category[0]);
-		switch(elem.category[0])
-		{
-			case "fiction" :
-						return 0;
-			case "self-help" :
-						return 1;	
-			case "religion" :
-						return 2;
-			case "business" :
-						return 3;
+	enableFilteredCategory: function(categoryName) {
+		//console.log(screen.height);
+		this.changeCategoryStyle();
+		var allBooksArray = document.getElementsByClassName("item-details");
+
+		for(let i=0; i<allBooksArray.length; i++) {
+			var curCategoryName = allBooksArray[i].getElementsByClassName("item-details__category")[0].innerHTML;
+			if(categoryName == "All" || categoryName.toLowerCase() === curCategoryName.toLowerCase())
+				allBooksArray[i].style.display = "flex";
+			else allBooksArray[i].style.display = "none";
 		}
 	},
 
 	render: function() {
 		//update DOM elements with the values from the current cat
 		books.forEach(function(elem) {
-			var divNumOfCategary = bookView.getDivNumOfCategory(elem);
-			var itemsListElem = document.getElementsByClassName("items-list")[divNumOfCategary];
 
 			var bookDetailsBlock = document.createElement("div");
 			bookDetailsBlock.className = "item-details";
@@ -100,13 +97,14 @@ var bookView = {
   						<div class="item-details__name-price">
   							<span class="item-details__name">${elem.name}</span>
   							<span class="item-details__price">₹${elem.price}</span>
+  							<span class="item-details__category">${elem.category}</span>
   						</div>
   					</a>`
   			var anchorElem = bookDetailsBlock.getElementsByClassName("item-details__anchor")[0];
   			anchorElem.addEventListener("click",function(){
   				octopus.storeBookId(elem.id);
   			});
-  			itemsListElem.appendChild(bookDetailsBlock);
+  			bookView.bookSection.appendChild(bookDetailsBlock);
 		});
 	}
 };
@@ -130,11 +128,9 @@ var categoryView = {
 
 	addEventListener: function() {
 		for(let i=0;i<this.categoryArray.length;i++){
-			this.categoryArray[i].addEventListener("click", (function(categoryIndex) {
-				return function() {
-					octopus.filterCategory(categoryIndex);
-				}
-			})(i));
+			this.categoryArray[i].addEventListener("click", function(event) {
+				octopus.filterCategory(event.target.innerHTML);
+			});
 		}
 	}
 };

@@ -290,3 +290,7 @@ body {
 	color: #303235;
 	font-size: 25px;
 }
+
+.item-details__category {
+	display: none;
+}
