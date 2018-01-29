@@ -9,7 +9,7 @@ export const book = {
 	ISBN 		: "9780553212419, 0553212419",
 	language 	: "English",
 	length 		: "4.15 in",
-	name 		: "Sherlock Holmes: The Complete Novels and Stories Volume II (English, Paperback, Sir Arthur Conan Doyle)",
+	name 		: "Sherlock Holmes: Volume II (English, Paperback, Sir Arthur Conan Doyle)",
 	price 		: "170",
 	publisher 	: "Random House Publishing Group",
 	seller 		: "BookEarth",

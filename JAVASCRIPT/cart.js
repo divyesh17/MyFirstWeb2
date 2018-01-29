@@ -89,6 +89,10 @@ var octopus = {
 		model.clickedItemOldQuantity = parseInt(quantity);
 	},
 
+	storeIdToLocalStorage: function(bookId) {
+		window.localStorage.setItem("bookId",bookId);
+	},
+
 	updateCartValue: function() {
 		model.cartValue = model.itemIdArray.length;
 	},
@@ -117,6 +121,7 @@ var cartView = {
 		var decreaseButton = itemListElem.getElementsByClassName("quantity-update__button")[0];
 		var inputField = itemListElem.getElementsByClassName("quantity-update__input")[0];
 		var removeButton = itemListElem.getElementsByClassName("quantity-remove__button")[0];
+		var nameButton = itemListElem.getElementsByClassName("name-block__name")[0];
 
 		inputField.addEventListener("focus",function(event) {
 			octopus.setOldQuantity(event.target.value);
@@ -164,6 +169,12 @@ var cartView = {
 			itemDivBlock.remove();
 			cartView.cartValueElem.innerHTML = octopus.getCartValue();
 		});
+
+		nameButton.addEventListener("click", (function(bookId){
+			return function() {
+				octopus.storeIdToLocalStorage(bookId);
+			};
+		})(bookObj.id));
 	},
 
 	changeDisabledValue: function(event) {
@@ -195,7 +206,7 @@ var cartView = {
             		</div>
             		<div class="name-and-price">
               			<div class="name-block">
-                			<span class="name-block__name">${bookObj.name}</span>    
+                			<a href="../commonBookLayout.html" class="name-block__name">${bookObj.name}</a>    
               			</div>
               			<div class="price-and-seller">
                 			<span class="price-and-seller__price">₹</span>

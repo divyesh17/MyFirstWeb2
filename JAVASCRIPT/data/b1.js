@@ -9,7 +9,7 @@ export const book = {
 	ISBN 		: "9780553212426, 0553212427",
 	language 	: "English",
 	length 		: "4.15 in",
-	name 		: "Sherlock Holmes: The Complete Novels and Stories Volume I (English, Paperback, Sir Arthur Conan Doyle)",
+	name 		: "Sherlock Holmes: Volume I (English, Paperback, Sir Arthur Conan Doyle)",
 	price 		: "170",
 	publisher 	: "Random House Publishing Group",
 	seller 		: "BookEarth",

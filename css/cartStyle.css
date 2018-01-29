@@ -58,6 +58,14 @@
 	font-size: 18px;
 }
 
+.name-block__name {
+	text-decoration: none;
+}
+
+.name-block__name:hover {
+	color: #123fd1;
+}
+
 .price-and-seller {
 	background-color: none;
 	display: flex;
