@@ -189,19 +189,19 @@ body {
 	z-index: 6;
 }
 
-.category-nav {
+.category__nav {
 	display: flex;
 	justify-content: space-between;
 }
 
-.category-nav > a {
+.category__name {
 	color: #57248A;
 	font-size: 20px;
 	padding: 0 10px;
 	text-decoration: none;
 }
 
-.category-nav > a:hover {
+.category__name:hover {
 	background-color: #d5d5d5;
 	border-radius: 5px;
 	box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.2);

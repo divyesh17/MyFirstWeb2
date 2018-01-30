@@ -17,14 +17,21 @@ var octopus = {
 		categoryView.init();
 		bookView.init();
 	},
-	
-	changeCategoryName: function(categoryName) {
-		bookView.changeCategoryName(categoryName);
+
+	clickEventOnBook: function(event) {
+		var itemDetailDiv = event.target.closest(".item-details");
+		if(itemDetailDiv !== null)
+			octopus.storeBookId(itemDetailDiv.id);
+	},
+
+	clickEventOnCategoryNav: function(event) {
+		if(event.target.closest(".category__name"))
+			octopus.filterCategory(event.target.innerHTML);
 	},
 
 	filterCategory: function(categoryName) {
-		console.log(categoryName);
-		this.changeCategoryName(categoryName);
+		//console.log(categoryName);
+		bookView.changeCategoryName(categoryName);
 		bookView.enableFilteredCategory(categoryName);
 	},
 
@@ -57,6 +64,12 @@ var bookView = {
 		this.render();
 	},
 
+	addEventListener: function() {
+		this.bookSection.addEventListener("click",function(event) {
+			octopus.clickEventOnBook(event);
+		});
+	},
+
 	changeCategoryName: function(categoryName) {
 		var categoryNameElem = document.getElementsByClassName("items-category__name")[0];
 		categoryNameElem.innerHTML = categoryName;
@@ -85,27 +98,27 @@ var bookView = {
 
 	render: function() {
 		//update DOM elements with the values from the current cat
-		books.forEach(function(elem) {
+		books.forEach(function(bookObj) {
 
 			var bookDetailsBlock = document.createElement("div");
 			bookDetailsBlock.className = "item-details";
+			bookDetailsBlock.id = bookObj.id;
 			bookDetailsBlock.innerHTML = 
 					`<a class="item-details__anchor" href="commonBookLayout.html">
   						<div class="item-details__image-block">
-  							<img src="${elem.imgSrc}"/>
+  							<img src="${bookObj.imgSrc}"/>
   						</div>
   						<div class="item-details__name-price">
-  							<span class="item-details__name">${elem.name}</span>
-  							<span class="item-details__price">₹${elem.price}</span>
-  							<span class="item-details__category">${elem.category}</span>
+  							<span class="item-details__name">${bookObj.name}</span>
+  							<span class="item-details__price">₹${bookObj.price}</span>
+  							<span class="item-details__category">${bookObj.category}</span>
   						</div>
-  					</a>`
-  			var anchorElem = bookDetailsBlock.getElementsByClassName("item-details__anchor")[0];
-  			anchorElem.addEventListener("click",function(){
-  				octopus.storeBookId(elem.id);
-  			});
+  					</a>`;
   			bookView.bookSection.appendChild(bookDetailsBlock);
 		});
+
+		//add event listener using event delegation
+		this.addEventListener();
 	}
 };
 
@@ -122,16 +135,14 @@ var cartView = {
 
 var categoryView = {
 	init: function() {
-		this.categoryArray = document.getElementsByClassName("category__choose");
+		this.categoryNavElem = document.getElementsByClassName("category__nav")[0];
 		this.addEventListener();
 	},
 
 	addEventListener: function() {
-		for(let i=0;i<this.categoryArray.length;i++){
-			this.categoryArray[i].addEventListener("click", function(event) {
-				octopus.filterCategory(event.target.innerHTML);
-			});
-		}
+		this.categoryNavElem.addEventListener("click", function(event) {
+				octopus.clickEventOnCategoryNav(event);
+		});
 	}
 };
 

@@ -29,6 +29,16 @@ var octopus = {
 		window.localStorage.setItem("cart",JSON.stringify(model.itemIdArray));
 	},
 
+	clickFunction: function(event) {
+		if(event.target.closest(".cart-button-block__button") 
+			|| event.target.closest(".buy-button-block__button"))
+		{
+			octopus.addBookIdToLocalStorage();
+			octopus.updateCartValue();
+			cartView.render();
+		}
+	},
+
 	getbookDetailObj: function() {
 		return model.bookDetailObj;
 	},
@@ -130,21 +140,13 @@ var cartView = {
 		//get DOM element that contains number of items in cart
 		this.cartValueElem = document.getElementsByClassName("cart__cart-value")[0];
 
+		var buttonsBlock = document.getElementsByClassName("buttons-block")[0];
 		//get add to cart and buy now button element
 		this.cartButton = document.getElementsByClassName("cart-button-block__button")[0];
-		this.buyButton = document.getElementsByClassName("buy-button-block__button")[0];
 
 		//add onclick event listener
-		this.cartButton.addEventListener("click", function() {
-			octopus.addBookIdToLocalStorage();
-			octopus.updateCartValue();
-			cartView.render();
-		});
-
-		this.buyButton.addEventListener("click", function() {
-			octopus.addBookIdToLocalStorage();
-			octopus.updateCartValue();
-			cartView.render();
+		buttonsBlock.addEventListener("click", function(event) {
+			octopus.clickFunction(event);
 		});
 
 		this.render();

@@ -5,6 +5,7 @@
 }
 
 .cart-box {
+	align-items: flex-start;
 	display: flex;
 	margin: 30px 100px;
 }
@@ -30,7 +31,6 @@
 .cart-item-details {
 	display: flex;
 	height: 100%;
-	min-width: 100%;
 }
 
 .img-block {
@@ -131,9 +131,10 @@
 .price-and-checkout {
 	display: flex;
 	flex-direction: column;
-	left: 880px;
-	position: fixed;
-	width: 32%;
+	margin-left: 50px; 
+	position: sticky;
+	top: 105px;
+	width: 35%;
 }
 
 .price-block {
