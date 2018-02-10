@@ -4,7 +4,7 @@ export const book = {
 	category	: ["religion"],
 	genre		: "Literary Collections",
 	height 		: "6.95 in",
-	id 			: "b1",
+	id 			: "b11",
 	imgSrc 		: "../../images/sherlockHolmes1.jpeg",
 	ISBN 		: "9780553212426, 0553212427",
 	language 	: "English",

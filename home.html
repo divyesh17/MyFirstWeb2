@@ -6,6 +6,7 @@
   	<title>BookEarth</title>
     <link rel="stylesheet" href="css/homeStyle.css"/>
     <link rel="shortcut icon" href="images/logo.ico"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
   </head>
 
   <body>
@@ -18,17 +19,16 @@
           </a>
         </div>
         <div class="search-bar">
+          <span class="material-icons md-50">search</span>
           <input class="search-bar__input" type="text" name="search" placeholder="Search.."/>
         </div>
         <div class="your-account">
+          <button class="your-account__button">Your Account</button>
           <div class="your-account__drop-down">
-            <button class="your-account__button">Your Account</button>
-            <div class="your-account__drop-down-content">
-              <a href="#">Profile</a>
-              <a href="#">Order</a>
-              <a href="#">Settings</a>
-              <a href="#">Logout</a>
-            </div>
+            <a class="your-account__anchor" href="#">Profile</a>
+            <a class="your-account__anchor" href="#">Order</a>
+            <a class="your-account__anchor" href="#">Settings</a>
+            <a class="your-account__anchor" href="#">Logout</a>
           </div>
         </div>
         <div class="cart">
@@ -53,15 +53,9 @@
   		</div>
   	</header>
 
-    <section class="items-box">
-      <div class="items-category">
-        <span class="items-category__name">All</span>
-      </div>
-      <div class="items-list">
-      </div>  
-    </section>
+    <section class="items-box"></section>
 
     <script type="module" src="JAVASCRIPT/home.js"></script>
   </body>
 
- </html>
+</html>

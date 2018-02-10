@@ -86,13 +86,18 @@ var octopus = {
 		return itemDivBlock.id;
 	},
 
+	getBookIndex: function(bookId) {
+		return parseInt(bookId.substr(1))-1;
+	},
+
 	getCartValue: function() {
 		return model.cartValue;
 	},
 
 	getCurrentItemPrice: function(event) {
-		var ancestorNode = event.target.closest(".name-and-price");
-		var itemPrice = ancestorNode.getElementsByClassName("price-and-seller__price")[1].innerHTML;
+		var bookId = this.getBookId(event);
+		var bookInd = this.getBookIndex(bookId);
+		var itemPrice = books[bookInd].price;
 		return parseInt(itemPrice);
 	},
 

@@ -21,7 +21,7 @@ var octopus = {
 	clickEventOnBook: function(event) {
 		var itemDetailDiv = event.target.closest(".item-details");
 		if(itemDetailDiv !== null)
-			octopus.storeBookId(itemDetailDiv.id);
+			octopus.storeBookId(itemDetailDiv.dataset.id);
 	},
 
 	clickEventOnCategoryNav: function(event) {
@@ -30,8 +30,6 @@ var octopus = {
 	},
 
 	filterCategory: function(categoryName) {
-		//console.log(categoryName);
-		bookView.changeCategoryName(categoryName);
 		bookView.enableFilteredCategory(categoryName);
 	},
 
@@ -58,10 +56,8 @@ var octopus = {
 var bookView = {
 
 	init: function() {
-		this.bookSection = document.getElementsByClassName("items-list")[0];
+		this.bookSection = document.getElementsByClassName("items-box")[0];
 		this.enableFilteredCategory("All");
-		//render this view
-		this.render();
 	},
 
 	addEventListener: function() {
@@ -70,56 +66,38 @@ var bookView = {
 		});
 	},
 
-	changeCategoryName: function(categoryName) {
-		var categoryNameElem = document.getElementsByClassName("items-category__name")[0];
-		categoryNameElem.innerHTML = categoryName;
-	},
-
-	changeCategoryStyle: function() {
-		var categorySection = document.getElementsByClassName("items-box")[0];
-		categorySection.style.height = (screen.height-120) + "px";
-		categorySection.style.display = "flex";
-		var itemBlock = categorySection.getElementsByClassName("items-list")[0];
-		itemBlock.style.flexWrap = "wrap";
-	},
-
 	enableFilteredCategory: function(categoryName) {
-		//console.log(screen.height);
-		this.changeCategoryStyle();
-		var allBooksArray = document.getElementsByClassName("item-details");
+		//console.log(categoryName);
+        this.bookSection.innerHTML = '';
 
-		for(let i=0; i<allBooksArray.length; i++) {
-			var curCategoryName = allBooksArray[i].getElementsByClassName("item-details__category")[0].innerHTML;
-			if(categoryName == "All" || categoryName.toLowerCase() === curCategoryName.toLowerCase())
-				allBooksArray[i].style.display = "flex";
-			else allBooksArray[i].style.display = "none";
-		}
+        books.forEach(function(bookObj) {
+            if(categoryName.toLowerCase() === "all")
+                bookView.render(bookObj);
+            else if(bookObj.category[0].toLowerCase() === categoryName.toLowerCase())
+                bookView.render(bookObj);
+        });
 	},
 
-	render: function() {
-		//update DOM elements with the values from the current cat
-		books.forEach(function(bookObj) {
-
-			var bookDetailsBlock = document.createElement("div");
-			bookDetailsBlock.className = "item-details";
-			bookDetailsBlock.id = bookObj.id;
-			bookDetailsBlock.innerHTML = 
-					`<a class="item-details__anchor" href="commonBookLayout.html">
-  						<div class="item-details__image-block">
-  							<img src="${bookObj.imgSrc}"/>
-  						</div>
-  						<div class="item-details__name-price">
-  							<span class="item-details__name">${bookObj.name}</span>
-  							<span class="item-details__price">₹${bookObj.price}</span>
-  							<span class="item-details__category">${bookObj.category}</span>
-  						</div>
-  					</a>`;
-  			bookView.bookSection.appendChild(bookDetailsBlock);
-		});
+	render: function(bookObj) {
+        var bookDetailsBlock = document.createElement("div");
+        bookDetailsBlock.className = "item-details";
+        bookDetailsBlock.dataset.id = bookObj.id;
+        bookDetailsBlock.dataset.category = bookObj.category;
+        bookDetailsBlock.innerHTML =
+            `<a class="item-details__anchor" href="commonBookLayout.html">
+  			    <div class="item-details__image-block">
+  				    <img src="${bookObj.imgSrc}"/>
+  				</div>
+  				<div class="item-details__name-price">
+  					<span class="item-details__name" title="${bookObj.name}">${bookObj.name}</span>
+  					<span class="item-details__price">₹${bookObj.price}</span>
+  				</div>
+  			</a>`;
+        bookView.bookSection.appendChild(bookDetailsBlock);
 
 		//add event listener using event delegation
 		this.addEventListener();
-	}
+	},
 };
 
 var cartView = {

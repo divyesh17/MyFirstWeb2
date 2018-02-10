@@ -1,77 +1,69 @@
+html {
+    font-size: 62.5%;
+}
+
+.header {
+    height: 8rem;
+    margin-bottom: 2rem;
+}
+
 li {
 	list-style: none;
 }
 
-#book-ID {
-	visibility: hidden;	
-}
-
 .book-info-section {
-	border-radius: 5px;
-	height: 730px;
-	padding: 10px;
-	width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+	width: 100vw;
 }
 
 .book-image-and-cart-button {
 	display: flex;
 	flex-direction: column;
-	float: left;
-	height: 100%;
-	width: 30%;
+    height: 70rem;
+	width: 45rem;
 }
 
 .book-img-block {
-	background-color: #E6EAF3; 
-	border-radius: 3px;
-	border: 1px solid #0E4085;
+    align-items: center;
+	border: 1px solid maroon;
 	display: flex;
-	height: 80%;
+	height: 90%;
 	justify-content: space-around;
-	padding: 10%;
 }
 
 .book-img-block > img {
-	height: 100%;	
+    height: 60rem;
 }
 
 .book-img-block:hover {
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.book-img-block > img:hover {
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #E6EAF3;
+	//box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .buttons-block {
+    align-items: center;
 	display: flex;
-	height: 10%;
-	margin-top: 10px; 
-	width: 100%;
+    height: 10%;
+    justify-content: space-around;
 }
 
-.buttons-block > div{
-	height: 100%;
-	width: 50%;
-}
+/*todo fixme*/
 
 .cart-button-block__button, .buy-button-block__button {
 	background-color: orange;
-	border-radius: 2px;
+	border-radius: 0.1rem;
 	border: none;
-	color: #0E4085;
+	color: #053370;
 	cursor: pointer;
-	font-size: 25px;
-	font-weight: 700;
-	height: 70%;
-	left: 50%;
+	font-size: 3rem;
 	outline: none;
-	position: relative;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	width: 200px;
+	width: 20rem;
+    height: 5rem;
 }
 
+/*// todo fixme, classname instead of tagname*/
 .buy-button-block > a {
 	text-decoration: none;
 }
@@ -85,11 +77,9 @@ li {
 }
 
 .book-details {
-	background-color: none;
 	display: flex;
 	flex-direction: column;
-	height: 90%;
-	padding-left: 30px;
+    width: 90rem;
 }
 
 .book-name {
@@ -100,46 +90,47 @@ li {
 .price-and-seller {
 	background-color: none;
 	display: flex;
-	flex-shrink: 0;
-	margin-top: 20px;
+    font-size: 2.4rem;
+	height: 8rem;
+    line-height: 8rem;
 }
 
-.price-and-seller__price{
-	font-size: 24px;
-	margin-right: 10px;
+.price-and-seller__price {
+	margin-right: 1rem;
 }
 
 .book-specifications {
-	border-radius: 2px;
-	border: solid 2px maroon;
-	flex-shrink: 1;
-	margin-top: 24px;
-	overflow: scroll;
+	border-radius: 0.2rem;
+	border: solid 0.2rem maroon;
 }
 
 .book-specifications__title {
 	color: #680909;
-	font-size: 25px;
-	padding: 24px 30px 24px 24px;
+	font-size: 2.5rem;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
 }
 
-.book-specifications__general {
-	border-top: solid 2px maroon;
-	font-size: 18px;
-	padding: 24px 24px 34px 24px;
+.book-specifications__box {
+    border-top: solid 0.2rem maroon;
+    display: flex;
+    font-size: 1.8rem;
+    justify-content: space-between;
 }
 
-.book-specifications__general-title {
-	font-size: 20px;
+.book-specifications__name-value {
+    width: 50%;
 }
 
 .book-specifications__list-row {
 	display: flex;
-	padding-top: 16px;
+    height: 4rem;
+    line-height: 4rem;
+    padding-left: 2rem;
 }
 
 .book-specifications__name {
 	color: #680909;
-	padding-right: 8px;
-	width: 15%;
+    width: 12rem;
 }
