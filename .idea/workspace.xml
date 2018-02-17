@@ -4,16 +4,7 @@
     <list default="true" id="717d0fd7-82ff-4142-8493-9c9ae28a1bd1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/JAVASCRIPT/cart.js" afterPath="$PROJECT_DIR$/JAVASCRIPT/cart.js" />
-      <change beforePath="$PROJECT_DIR$/cart.html" afterPath="$PROJECT_DIR$/cart.html" />
-      <change beforePath="$PROJECT_DIR$/commonBookLayout.html" afterPath="$PROJECT_DIR$/commonBookLayout.html" />
-      <change beforePath="$PROJECT_DIR$/css/bookStyle.css" afterPath="$PROJECT_DIR$/css/bookStyle.css" />
-      <change beforePath="$PROJECT_DIR$/css/cartStyle.css" afterPath="$PROJECT_DIR$/css/cartStyle.css" />
-      <change beforePath="$PROJECT_DIR$/css/homeStyle.css" afterPath="$PROJECT_DIR$/css/homeStyle.css" />
-      <change beforePath="$PROJECT_DIR$/images/BookEarth_files/bookStyle.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/BookEarth_files/cart.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/BookEarth_files/homeStyle.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/BookEarth_files/sherlockHolmes.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/images/BookEarth_files/symbol.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js" afterPath="$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,47 +18,40 @@
       <file leaf-file-name="cart.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="78" column="42" lean-forward="true" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+            <state relative-caret-position="388">
+              <caret line="58" column="46" lean-forward="false" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cartStyle.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/cartStyle.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="213" column="33" lean-forward="false" selection-start-line="213" selection-start-column="33" selection-end-line="213" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JAVASCRIPT/cart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="260" column="27" lean-forward="false" selection-start-line="260" selection-start-column="27" selection-end-line="260" selection-end-column="27" />
+            <state relative-caret-position="532">
+              <caret line="309" column="72" lean-forward="false" selection-start-line="309" selection-start-column="72" selection-end-line="309" selection-end-column="72" />
               <folding>
-                <marker date="1518859522222" expanded="true" signature="7852:9098" ph="..." />
-                <marker date="1518859522222" expanded="true" signature="7874:7966" ph="..." />
-                <marker date="1518859522222" expanded="true" signature="8009:9097" ph="..." />
-                <marker date="1518859522222" expanded="true" signature="8051:8178" ph="..." />
-                <marker date="1518859522222" expanded="true" signature="8226:8481" ph="..." />
-                <marker date="1518859522222" expanded="true" signature="8539:9076" ph="..." />
-                <marker date="1518859522222" expanded="true" signature="8588:8898" ph="..." />
-                <marker date="1518859522222" expanded="true" signature="8948:9052" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="8521:9780" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="8543:8635" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="8678:9779" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="8720:8847" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="8895:9150" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="9208:9758" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="9257:9432" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="9257:9580" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="9344:9353" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="9630:9734" ph="..." />
+                <marker date="1518872559342" expanded="true" signature="10081:10919" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bookStyle.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/bookStyle.css">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3082">
-              <caret line="134" column="13" lean-forward="false" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
+            <state relative-caret-position="184">
+              <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -79,10 +63,24 @@
     <findStrings>
       <find>color</find>
       <find>carttable</find>
+      <find>getbookDetail</find>
+      <find>var</find>
+      <find>cartVal</find>
+      <find>updateValu</find>
       <find>aler</find>
+      <find>itemIdar</find>
+      <find>gettotal</find>
+      <find>priceView.re</find>
+      <find>totalQu</find>
+      <find>reduce</find>
+      <find>id</find>
+      <find>changedi</find>
+      <find>alert</find>
+      <find>priceview.re</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>let</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -106,9 +104,10 @@
         <option value="$PROJECT_DIR$/css/bookStyle.css" />
         <option value="$PROJECT_DIR$/commonBookLayout.html" />
         <option value="$PROJECT_DIR$/css/homeStyle.css" />
-        <option value="$PROJECT_DIR$/JAVASCRIPT/cart.js" />
-        <option value="$PROJECT_DIR$/cart.html" />
         <option value="$PROJECT_DIR$/css/cartStyle.css" />
+        <option value="$PROJECT_DIR$/cart.html" />
+        <option value="$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js" />
+        <option value="$PROJECT_DIR$/JAVASCRIPT/cart.js" />
       </list>
     </option>
   </component>
@@ -144,6 +143,11 @@
             <path>
               <item name="MyFirstWeb2" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyFirstWeb2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyFirstWeb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyFirstWeb2" type="462c0819:PsiDirectoryNode" />
+              <item name="JAVASCRIPT" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -275,12 +279,12 @@
       <workItem from="1518278067241" duration="2000" />
       <workItem from="1518278072543" duration="3000" />
       <workItem from="1518503478648" duration="286000" />
-      <workItem from="1518858298236" duration="4748000" />
+      <workItem from="1518858298236" duration="12017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15996000" />
+    <option name="totallyTimeSpent" value="23265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -479,20 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/homeStyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -500,10 +490,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commonBookLayout.html">
+    <entry file="file://$PROJECT_DIR$/css/cartStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="91" lean-forward="false" selection-start-line="9" selection-start-column="91" selection-end-line="9" selection-end-column="91" />
+        <state relative-caret-position="5037">
+          <caret line="219" column="1" lean-forward="true" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -515,36 +506,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="260" column="27" lean-forward="false" selection-start-line="260" selection-start-column="27" selection-end-line="260" selection-end-column="27" />
-          <folding>
-            <marker date="1518859522222" expanded="true" signature="7852:9098" ph="..." />
-            <marker date="1518859522222" expanded="true" signature="7874:7966" ph="..." />
-            <marker date="1518859522222" expanded="true" signature="8009:9097" ph="..." />
-            <marker date="1518859522222" expanded="true" signature="8051:8178" ph="..." />
-            <marker date="1518859522222" expanded="true" signature="8226:8481" ph="..." />
-            <marker date="1518859522222" expanded="true" signature="8539:9076" ph="..." />
-            <marker date="1518859522222" expanded="true" signature="8588:8898" ph="..." />
-            <marker date="1518859522222" expanded="true" signature="8948:9052" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="78" column="42" lean-forward="true" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+        <state relative-caret-position="388">
+          <caret line="58" column="46" lean-forward="false" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/cartStyle.css">
+    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="213" column="33" lean-forward="false" selection-start-line="213" selection-start-column="33" selection-end-line="213" selection-end-column="33" />
+        <state relative-caret-position="509">
+          <caret line="83" column="32" lean-forward="true" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commonBookLayout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="9" column="91" lean-forward="false" selection-start-line="9" selection-start-column="91" selection-end-line="9" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="309" column="72" lean-forward="false" selection-start-line="309" selection-start-column="72" selection-end-line="309" selection-end-column="72" />
+          <folding>
+            <marker date="1518872559342" expanded="true" signature="8521:9780" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="8543:8635" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="8678:9779" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="8720:8847" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="8895:9150" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="9208:9758" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="9257:9432" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="9257:9580" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="9344:9353" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="9630:9734" ph="..." />
+            <marker date="1518872559342" expanded="true" signature="10081:10919" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

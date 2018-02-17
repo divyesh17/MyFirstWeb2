@@ -3,9 +3,9 @@ import {books} from "./data/allBooks.js";
 
 const model = {
     cartValue: 0,
+    clickedItemOldQuantity: 0,
     deliveryCharge: 0,
     itemIdArray: [],
-    clickedItemOldQuantity: 0,
     totalQuantity: 0,
     totalItemPrice: 0
 };
@@ -23,45 +23,47 @@ const octopus = {
     },
 
     changeEvent: function (event) {
-        var newQuantity = event.target.value;
-        var oldQuantity = octopus.getOldQuantity();
+        let newQuantity = event.target.value;
+        let oldQuantity = octopus.getOldQuantity();
 
         if (octopus.isCorrectValue(newQuantity, event) === false)
             return;
 
+        let parentNode = event.target.closest(".quantity-update");
         //update disabled value of minus button
-        cartView.changeDisabledValue(event);
-        var quantityDiff = parseInt(newQuantity) - oldQuantity;
-        var selectedItemPrice = octopus.getCurrentItemPrice(event);
+        cartView.changeDisabledValue(parentNode);
+        let quantityDiff = parseInt(newQuantity) - oldQuantity;
+        let selectedItemPrice = octopus.getCurrentItemPrice(event);
         octopus.updateItemPriceAndQuantity(selectedItemPrice * quantityDiff, quantityDiff);
+        this.updateValueInItemArray(this.getBookId(event),quantityDiff);
     },
 
     clickEvent: function (event) {
+        let selectedItemPrice = octopus.getCurrentItemPrice(event);
+        let bookId = octopus.getBookId(event);
+        let parentNode = event.target.closest(".quantity-update");
+
         if (event.target.closest(".quantity-update--plus")) {
             //increase quantity in value attribute of input element
-            this.updateValuInInput(event, 1);
+            this.updateValueInInput(event, 1);
+            this.updateValueInItemArray(bookId,1);
             //update disabled value of minus button
-            cartView.changeDisabledValue(event);
-            var selectedItemPrice = octopus.getCurrentItemPrice(event);
+            cartView.changeDisabledValue(parentNode);
             octopus.updateItemPriceAndQuantity(selectedItemPrice, 1);
         }
         else if (event.target.closest(".quantity-update--minus")) {
             //increase quantity in value attribute of input element
-            this.updateValuInInput(event, -1);
+            this.updateValueInInput(event, -1);
+            this.updateValueInItemArray(bookId,-1);
             //update disabled value of minus button
-            cartView.changeDisabledValue(event);
-            var selectedItemPrice = octopus.getCurrentItemPrice(event);
+            cartView.changeDisabledValue(parentNode);
             octopus.updateItemPriceAndQuantity(-selectedItemPrice, -1);
         }
         else if (event.target.closest(".quantity-remove__button")) {
-            // get id of book
-            var itemDivBlock = event.target.closest(".cart-items-list");
-            var bookId = octopus.getBookId(event);
+            let itemDivBlock = event.target.closest(".cart-items-list");
             // remove id from local storage
             octopus.removeFromLocalStorage(bookId);
-            //get deleting item price and quantity
-            var selectedItemPrice = octopus.getCurrentItemPrice(event);
-            var selectedItemQuantity = octopus.getCurrentItemQuantity(event);
+            let selectedItemQuantity = octopus.getCurrentItemQuantity(event);
             // update total price and quantity
             octopus.updateItemPriceAndQuantity(-selectedItemPrice * selectedItemQuantity, -selectedItemQuantity);
             // remove item from cart
@@ -70,8 +72,6 @@ const octopus = {
             cartView.updateCartValue(octopus.getCartValue());
         }
         else if (event.target.closest(".name-block__name")) {
-            // get id of book
-            var bookId = octopus.getBookId(event);
             octopus.storeIdToLocalStorage(bookId);
         }
     },
@@ -81,9 +81,11 @@ const octopus = {
     },
 
     getBookId: function (event) {
+        if(typeof event === 'undefined')
+            return -1;
         // get dom element that has id of book
-        var itemDivBlock = event.target.closest(".cart-items-list");
-        return itemDivBlock.id;
+        let itemDivBlock = event.target.closest(".cart-items-list");
+        return itemDivBlock.dataset.id;
     },
 
     getBookIndex: function (bookId) {
@@ -95,15 +97,17 @@ const octopus = {
     },
 
     getCurrentItemPrice: function (event) {
-        var bookId = this.getBookId(event);
-        var bookInd = this.getBookIndex(bookId);
-        var itemPrice = books[bookInd].price;
+        if(typeof event === 'undefined')
+            return 0;
+        let bookId = this.getBookId(event);
+        let bookInd = this.getBookIndex(bookId);
+        let itemPrice = books[bookInd].price;
         return parseInt(itemPrice);
     },
 
     getCurrentItemQuantity: function (event) {
-        var ancestorNode = event.target.closest(".name-and-price");
-        var itemQuantity = ancestorNode.getElementsByClassName("quantity-update__input")[0].value;
+        let ancestorNode = event.target.closest(".name-and-price");
+        let itemQuantity = ancestorNode.getElementsByClassName("quantity-update__input")[0].value;
         return parseInt(itemQuantity);
     },
 
@@ -132,7 +136,7 @@ const octopus = {
     },
 
     initItemIdArray: function () {
-        var itemIdArray = JSON.parse(window.localStorage.getItem("cart"));
+        let itemIdArray = JSON.parse(window.localStorage.getItem("cart"));
         //alert(window.localStorage.getItem("cart"));
         if (itemIdArray !== null)
             model.itemIdArray = itemIdArray;
@@ -148,7 +152,10 @@ const octopus = {
     },
 
     removeFromLocalStorage: function (bookId) {
-        var itemInd = model.itemIdArray.indexOf(bookId);
+        let itemInd = model.itemIdArray.reduce((itemInd,itemObj,curInd) => {
+            if(itemObj.bookId === bookId)
+                itemInd = curInd;
+        },0);
         model.itemIdArray.splice(itemInd, 1);
         window.localStorage.setItem("cart", JSON.stringify(model.itemIdArray));
         octopus.updateCartValue();
@@ -172,10 +179,21 @@ const octopus = {
         priceView.render();
     },
 
-    updateValuInInput: function (event, updateValue) {
-        var parentElem = event.target.closest(".quantity-update");
-        var itemQuantityElem = parentElem.getElementsByClassName("quantity-update__input")[0];
+    updateValueInInput: function (event, updateValue) {
+        let parentElem = event.target.closest(".quantity-update");
+        let itemQuantityElem = parentElem.getElementsByClassName("quantity-update__input")[0];
         itemQuantityElem.value = parseInt(itemQuantityElem.value) + updateValue;
+    },
+
+    updateValueInItemArray: function (bookId, value) {
+        let itemInd = model.itemIdArray.reduce((itemInd,itemObj,curInd) => {
+            if(itemObj.bookId === bookId) {
+                itemInd = curInd;
+            }
+            return itemInd;
+        },0);
+        model.itemIdArray[itemInd].quantity += value;
+        window.localStorage.setItem("cart", JSON.stringify(model.itemIdArray));
     }
 };
 
@@ -193,7 +211,7 @@ const cartView = {
 
 	addEventListener: function() {
 
-		var inputElemArray = document.getElementsByClassName("quantity-update__input");
+		let inputElemArray = document.getElementsByClassName("quantity-update__input");
 
 		for(let i=0; i<inputElemArray.length; i++) {
 			inputElemArray[i].addEventListener("focus",function(event) {
@@ -210,10 +228,9 @@ const cartView = {
 		});
 	},
 
-	changeDisabledValue: function(event) {
-		var parentNode = event.target.closest(".quantity-update"); 
-		var inputElem = parentNode.getElementsByClassName("quantity-update__input")[0];
-		var minusButton = parentNode.getElementsByClassName("quantity-update__button")[0];
+	changeDisabledValue: function(parentNode) {
+		let inputElem = parentNode.getElementsByClassName("quantity-update__input")[0];
+		let minusButton = parentNode.getElementsByClassName("quantity-update__button")[0];
 
 		if(inputElem.value === "1")
 			minusButton.disabled = true;
@@ -223,16 +240,17 @@ const cartView = {
 	render: function() {
 		this.updateCartValue(octopus.getCartValue());
 
-		var itemIdArray = octopus.getItemIdArray();
+		let itemIdArray = octopus.getItemIdArray();
 
-		itemIdArray.forEach(function(bookId) {
+		itemIdArray.forEach(function(cartBookObj) {
 			//get book detial object from books array using its index
-			var bookIndex = parseInt(bookId.substr(1))-1;
-			var bookObj = books[bookIndex];
+            let bookId = cartBookObj.bookId;
+			let bookIndex = parseInt(bookId.substr(1))-1;
+			let bookObj = books[bookIndex];
 
-			var itemListElem = document.createElement("div");
+			let itemListElem = document.createElement("div");
 			itemListElem.className = "cart-items-list";
-			itemListElem.id = bookObj.id;
+			itemListElem.dataset.id = bookObj.id;
 			itemListElem.innerHTML = 
 				    `<div class="img-block">
               			<img class="img-block__img" src="${bookObj.imgSrc}"/>
@@ -249,8 +267,8 @@ const cartView = {
 
               			<div class="quantity-update-or-remove">
                 			<div class="quantity-update">
-                  				<button class="quantity-update__button quantity-update--minus" disabled>-</button>
-                  				<input class="quantity-update__input" type="text" value="1"/>
+                  				<button class="quantity-update__button quantity-update--minus">-</button>
+                  				<input class="quantity-update__input" type="text" value="${cartBookObj.quantity}"/>
                   				<button class="quantity-update__button quantity-update--plus">+</button>
                 			</div>
 
@@ -259,15 +277,19 @@ const cartView = {
                 			</div>
               			</div>
             		</div>`;
-          	
-          	octopus.updateItemPriceAndQuantity(bookObj.price,1);
+
+			let price = bookObj.price;
+			let quantity = cartBookObj.quantity;
+
+			cartView.changeDisabledValue(itemListElem.getElementsByClassName('quantity-update')[0]);
+          	octopus.updateItemPriceAndQuantity(price*quantity,quantity);
           	cartView.cartTable.appendChild(itemListElem);
 		});
 		cartView.addEventListener();
 	},
 
 	updateCartValue: function(cartValue) {
-		this.cartValueElem.innerHTML = cartValue;
+		this.cartValueElem.textContent = cartValue;
 	}
 };
 
