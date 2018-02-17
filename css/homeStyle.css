@@ -227,7 +227,7 @@ html {
 
 .item-details__anchor:hover {
 	border-radius: 5px;
-	box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.2);	
+	box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.2);	
 }
 
 .item-details__image-block {
