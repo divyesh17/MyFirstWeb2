@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="717d0fd7-82ff-4142-8493-9c9ae28a1bd1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JAVASCRIPT/cart.js" afterPath="$PROJECT_DIR$/JAVASCRIPT/cart.js" />
       <change beforePath="$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js" afterPath="$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js" />
+      <change beforePath="$PROJECT_DIR$/JAVASCRIPT/home.js" afterPath="$PROJECT_DIR$/JAVASCRIPT/home.js" />
+      <change beforePath="$PROJECT_DIR$/cart.html" afterPath="$PROJECT_DIR$/cart.html" />
+      <change beforePath="$PROJECT_DIR$/css/bookStyle.css" afterPath="$PROJECT_DIR$/css/bookStyle.css" />
+      <change beforePath="$PROJECT_DIR$/css/homeStyle.css" afterPath="$PROJECT_DIR$/css/homeStyle.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,43 +18,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cart.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cart.html">
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JAVASCRIPT/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="58" column="46" lean-forward="false" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JAVASCRIPT/cart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="309" column="72" lean-forward="false" selection-start-line="309" selection-start-column="72" selection-end-line="309" selection-end-column="72" />
+            <state relative-caret-position="480">
+              <caret line="31" column="9" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="31" selection-end-column="9" />
               <folding>
-                <marker date="1518872559342" expanded="true" signature="8521:9780" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="8543:8635" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="8678:9779" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="8720:8847" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="8895:9150" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="9208:9758" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="9257:9432" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="9257:9580" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="9344:9353" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="9630:9734" ph="..." />
-                <marker date="1518872559342" expanded="true" signature="10081:10919" ph="..." />
+                <marker date="1519203617079" expanded="true" signature="2749:3073" ph="..." />
+                <marker date="1519203617079" expanded="true" signature="2798:2852" ph="..." />
+                <marker date="1519203617079" expanded="true" signature="2897:3063" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home.html">
+      <file leaf-file-name="commonBookLayout.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="91" />
+            <state relative-caret-position="2001">
+              <caret line="87" column="32" lean-forward="false" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cart.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="86" column="64" lean-forward="false" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -64,7 +59,6 @@
       <find>color</find>
       <find>carttable</find>
       <find>getbookDetail</find>
-      <find>var</find>
       <find>cartVal</find>
       <find>updateValu</find>
       <find>aler</find>
@@ -77,6 +71,8 @@
       <find>changedi</find>
       <find>alert</find>
       <find>priceview.re</find>
+      <find>width</find>
+      <find>var</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -99,15 +95,15 @@
         <option value="$PROJECT_DIR$/JAVASCRIPT/data/b13.js" />
         <option value="$PROJECT_DIR$/JAVASCRIPT/data/b14.js" />
         <option value="$PROJECT_DIR$/JAVASCRIPT/data/b15.js" />
-        <option value="$PROJECT_DIR$/JAVASCRIPT/home.js" />
-        <option value="$PROJECT_DIR$/home.html" />
-        <option value="$PROJECT_DIR$/css/bookStyle.css" />
         <option value="$PROJECT_DIR$/commonBookLayout.html" />
-        <option value="$PROJECT_DIR$/css/homeStyle.css" />
         <option value="$PROJECT_DIR$/css/cartStyle.css" />
-        <option value="$PROJECT_DIR$/cart.html" />
-        <option value="$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js" />
         <option value="$PROJECT_DIR$/JAVASCRIPT/cart.js" />
+        <option value="$PROJECT_DIR$/css/bookStyle.css" />
+        <option value="$PROJECT_DIR$/home.html" />
+        <option value="$PROJECT_DIR$/css/homeStyle.css" />
+        <option value="$PROJECT_DIR$/JAVASCRIPT/home.js" />
+        <option value="$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js" />
+        <option value="$PROJECT_DIR$/cart.html" />
       </list>
     </option>
   </component>
@@ -136,7 +132,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,8 +151,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,12 +275,13 @@
       <workItem from="1518278067241" duration="2000" />
       <workItem from="1518278072543" duration="3000" />
       <workItem from="1518503478648" duration="286000" />
-      <workItem from="1518858298236" duration="12017000" />
+      <workItem from="1518858298236" duration="12887000" />
+      <workItem from="1519199508217" duration="2429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23265000" />
+    <option name="totallyTimeSpent" value="26564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -304,7 +301,6 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -316,6 +312,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -357,18 +354,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cart.html">
+    <entry file="file://$PROJECT_DIR$/css/homeStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="68" column="17" lean-forward="false" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/cartStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2162">
-          <caret line="94" column="18" lean-forward="false" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -385,7 +374,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2162">
           <caret line="94" column="18" lean-forward="false" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="68" column="17" lean-forward="false" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/cartStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2162">
+          <caret line="94" column="18" lean-forward="false" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -409,7 +412,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2256">
           <caret line="94" column="18" lean-forward="false" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -476,49 +478,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="27" column="51" lean-forward="true" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/homeStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="145" column="33" lean-forward="false" selection-start-line="145" selection-start-column="33" selection-end-line="145" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/cartStyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5037">
           <caret line="219" column="1" lean-forward="true" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/bookStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3082">
-          <caret line="134" column="13" lean-forward="false" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="58" column="46" lean-forward="false" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="83" column="32" lean-forward="true" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -526,35 +489,73 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-65">
           <caret line="9" column="91" lean-forward="false" selection-start-line="9" selection-start-column="91" selection-end-line="9" selection-end-column="91" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bookStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="80" column="27" lean-forward="true" selection-start-line="80" selection-start-column="27" selection-end-line="81" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="91" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/homeStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="266" column="0" lean-forward="true" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="31" column="9" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="31" selection-end-column="9" />
+          <folding>
+            <marker date="1519203617079" expanded="true" signature="2749:3073" ph="..." />
+            <marker date="1519203617079" expanded="true" signature="2798:2852" ph="..." />
+            <marker date="1519203617079" expanded="true" signature="2897:3063" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JAVASCRIPT/cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="309" column="72" lean-forward="false" selection-start-line="309" selection-start-column="72" selection-end-line="309" selection-end-column="72" />
+        <state relative-caret-position="-5952">
+          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding>
-            <marker date="1518872559342" expanded="true" signature="8521:9780" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="8543:8635" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="8678:9779" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="8720:8847" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="8895:9150" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="9208:9758" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="9257:9432" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="9257:9580" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="9344:9353" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="9630:9734" ph="..." />
-            <marker date="1518872559342" expanded="true" signature="10081:10919" ph="..." />
+            <marker date="1518965623521" expanded="true" signature="8543:8635" ph="..." />
+            <marker date="1518965623521" expanded="true" signature="8678:9779" ph="..." />
+            <marker date="1518965623521" expanded="true" signature="8720:8847" ph="..." />
+            <marker date="1518965623521" expanded="true" signature="8895:9150" ph="..." />
+            <marker date="1518965623521" expanded="true" signature="9208:9758" ph="..." />
+            <marker date="1518965623521" expanded="true" signature="9257:9580" ph="..." />
+            <marker date="1518965623521" expanded="true" signature="9630:9734" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAVASCRIPT/commonBookLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2001">
+          <caret line="87" column="32" lean-forward="false" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="86" column="64" lean-forward="false" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -61,7 +61,7 @@ const octopus = {
 
 	initBookDetailObj: function() {
 		//get required book index for imported books array
-		var bookIndex = this.getBookIndex();
+		let bookIndex = this.getBookIndex();
 
 		//get required book details object from books array
 		model.bookDetailObj = books[bookIndex];
@@ -69,22 +69,23 @@ const octopus = {
 
 	initBookId: function() {
 		//get bookId from local storage
-		model.bookId = window.localStorage.getItem("bookId");
+        let urlParams = new URLSearchParams(window.location.search);
+		model.bookId = urlParams.get('itemId');
 	},
 
 	initItemIdArray: function() {
-		var itemIdArray = JSON.parse(window.localStorage.getItem("cart"));
+		let itemIdArray = JSON.parse(window.localStorage.getItem("cart"));
 		if(itemIdArray !== null)
 			model.itemIdArray = itemIdArray;
 	},
 
 	isBookAlreadyInCart: function() {
-		var matchedElemInd = model.itemIdArray.reduce((matchedInd,bookObj,curInd) => {
+		let matchedElemInd = model.itemIdArray.reduce((matchedInd,bookObj,curInd) => {
 				if(bookObj.bookId === model.bookId)
 					matchedInd = curInd;
 				return matchedInd;
 		},-1);
-		return (matchedElemInd === -1)?false:true;
+		return (matchedElemInd !== -1);
 	},
 
 	updateCartValue: function() {
@@ -119,7 +120,7 @@ const bookView = {
 
 	render: function() {
 		//get book details object from model
-		var bookDetailObj = octopus.getBookDetailObj();
+		let bookDetailObj = octopus.getBookDetailObj();
 
 		//update DOM elements with the values of the book details
 		this.imgElem.src = bookDetailObj.imgSrc;
@@ -144,7 +145,7 @@ const cartView = {
 		//get DOM element that contains number of items in cart
 		this.cartValueElem = document.getElementsByClassName("cart__cart-value")[0];
 
-		var buttonsBlock = document.getElementsByClassName("buttons-block")[0];
+		let buttonsBlock = document.getElementsByClassName("buttons-block")[0];
 		//get add to cart and buy now button element
 		this.cartButton = document.getElementsByClassName("cart-button-block__button")[0];
 

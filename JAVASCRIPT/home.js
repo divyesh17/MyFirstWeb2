@@ -1,14 +1,14 @@
 import {books} from "./data/allBooks.js";
 /* ============================ MODEL ==================================== */
 
-var model = {
+const model = {
 	cartValue: 0,
 	totalCategory: 0
 };
 
 /* ============================= OCTOPUS ================================== */
 
-var octopus = {
+const octopus = {
 
 	init: function() {
 		this.updateCartValue();
@@ -19,9 +19,17 @@ var octopus = {
 	},
 
 	clickEventOnBook: function(event) {
-		var itemDetailDiv = event.target.closest(".item-details");
-		if(itemDetailDiv !== null)
-			octopus.storeBookId(itemDetailDiv.dataset.id);
+		let itemDetailDiv = event.target.closest(".item-details");
+		if(itemDetailDiv !== null) {
+			event.preventDefault();
+			let itemDetailsAnchor = itemDetailDiv.getElementsByClassName('item-details__anchor')[0];
+            let url = new URL(itemDetailsAnchor.href);
+            let urlParams = new URLSearchParams(url.search);
+			urlParams.append('itemId', itemDetailDiv.dataset.id);
+			url.search = urlParams.toString();
+			window.location.href = url.toString();
+			//octopus.storeBookId(itemDetailDiv.dataset.id);
+        }
 	},
 
 	clickEventOnCategoryNav: function(event) {
@@ -46,14 +54,14 @@ var octopus = {
 	},
 
 	updateCartValue: function() {
-		var itemIdArray = JSON.parse(window.localStorage.getItem("cart"));
+		let itemIdArray = JSON.parse(window.localStorage.getItem("cart"));
 		model.cartValue = (itemIdArray==null)?0:itemIdArray.length;
 	}
 };
 
 /* ============================= VIEW ================================== */
 
-var bookView = {
+const bookView = {
 
 	init: function() {
 		this.bookSection = document.getElementsByClassName("items-box")[0];
@@ -79,7 +87,7 @@ var bookView = {
 	},
 
 	render: function(bookObj) {
-        var bookDetailsBlock = document.createElement("div");
+        let bookDetailsBlock = document.createElement("div");
         bookDetailsBlock.className = "item-details";
         bookDetailsBlock.dataset.id = bookObj.id;
         bookDetailsBlock.dataset.category = bookObj.category;
@@ -100,7 +108,7 @@ var bookView = {
 	},
 };
 
-var cartView = {
+const cartView = {
 	init: function() {
 		this.cartValueElem = document.getElementsByClassName("cart__cart-value")[0];
 		this.render();
@@ -111,7 +119,7 @@ var cartView = {
 	}
 };
 
-var categoryView = {
+const categoryView = {
 	init: function() {
 		this.categoryNavElem = document.getElementsByClassName("category__nav")[0];
 		this.addEventListener();
